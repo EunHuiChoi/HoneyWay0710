@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class CongestionActivity extends AppCompatActivity {
 
 
-    ImageButton btnSend;//깃 확인용 아무말 
+    ImageButton btnSend;
     //Button btnSend;
 
     TextView txtvCongest;
