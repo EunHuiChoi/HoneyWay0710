@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#EFECEC"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imgSeoul"
+            android:layout_width="42dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/img_seoul" />
+
+        <TextView
+            android:id="@+id/txtStationName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:text="당고개"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/imgStationNum"
+            android:layout_width="22dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/img_station4" />
+
+        <ImageView
+            android:id="@+id/imgStationNum2"
+            android:layout_width="22dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            app:srcCompat="@android:color/background_light" />
+
+        <ImageView
+            android:id="@+id/imgStationNum3"
+            android:layout_width="22dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            app:srcCompat="@android:color/background_light" />
+
+    </LinearLayout>
+
+</LinearLayout>

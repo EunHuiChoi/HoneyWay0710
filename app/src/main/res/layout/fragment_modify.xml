@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ModifyFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#F4F4F4"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            android:layout_weight="0.7">
+
+            <TimePicker
+                android:id="@+id/timePicker"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:timePickerMode="spinner"
+                android:layout_weight="0.8"
+                android:theme="@style/TimePicker1"/>
+
+            <NumberPicker
+                android:id="@+id/datePicker"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginRight="50dp"
+                android:layout_weight="0.3"
+                android:theme="@style/TimePicker1"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_weight="0.3">
+
+            <Button
+                android:id="@+id/btnOK"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/confirm_timepicker"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:textSize = "20sp"
+                android:text="확인" />
+
+            <Button
+                android:id="@+id/btnNO"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="5dp"
+                android:textSize = "20sp"
+                android:background="@drawable/cancle_timepicker"
+                android:text="취소" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</FrameLayout>

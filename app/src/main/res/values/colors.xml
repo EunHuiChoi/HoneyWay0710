@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#746464</color>
+    <color name="colorPrimaryDark">#746464</color> //#00574B
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="color_nulnul">#FFE165</color>
+    <color name="color_yuyou">#FF9F50</color>
+    <color name="color_botong">#DC5631</color>
+    <color name="color_honjob">#93241D</color>
+    <color name="color_bbackbback">#4A4040</color>
+</resources>
