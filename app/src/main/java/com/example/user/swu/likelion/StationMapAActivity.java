@@ -10,7 +10,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class StationMapAActivity extends AppCompatActivity {
-
+ //태영 수정
     //예진 플로팅 버튼
     private Boolean isFabOpen = false;
     private FloatingActionButton btnfabL;
