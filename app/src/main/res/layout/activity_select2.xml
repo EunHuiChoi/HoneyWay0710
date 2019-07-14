@@ -100,7 +100,7 @@
                     android:layout_height="35dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
-                    android:background="@drawable/list_line1"
+                    android:background="@drawable/list_line5"
                     android:fontFamily="@font/kopub_dotum_bold"
                     android:textSize="18sp" />
 
@@ -110,7 +110,7 @@
                     android:layout_height="35dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
-                    android:background="@drawable/list_line2"
+                    android:background="@drawable/list_line6"
                     android:fontFamily="@font/kopub_dotum_bold"
                     android:textSize="18sp" />
 
@@ -120,7 +120,7 @@
                     android:layout_height="35dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
-                    android:background="@drawable/list_line3"
+                    android:background="@drawable/list_line7"
                     android:fontFamily="@font/kopub_dotum_bold"
                     android:textSize="18sp" />
 
@@ -130,7 +130,7 @@
                     android:layout_height="35dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
-                    android:background="@drawable/list_line4"
+                    android:background="@drawable/list_line8"
                     android:fontFamily="@font/kopub_dotum_bold"
                     android:textSize="18sp" />
 

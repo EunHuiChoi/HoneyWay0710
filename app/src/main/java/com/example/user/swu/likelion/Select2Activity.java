@@ -1304,8 +1304,8 @@ public class Select2Activity extends AppCompatActivity {
         s7_26.setImgSeoul(R.drawable.img_seoul);
         s7_26.setTxtStationName("고속터미널");
         s7_26.setImgStationNum(R.drawable.img_station3);
-        s7_26.setImgStationNum(R.drawable.img_station7);
-        s7_26.setImgStationNum(R.drawable.img_station9);
+        s7_26.setImgStationNum2(R.drawable.img_station7);
+        s7_26.setImgStationNum3(R.drawable.img_station9);
 
         StationBean s7_27 = new StationBean();
         s7_27.setImgSeoul(R.drawable.img_seoul);
@@ -1446,7 +1446,7 @@ public class Select2Activity extends AppCompatActivity {
         s8_2.setImgSeoul(R.drawable.img_seoul);
         s8_2.setTxtStationName("천호");
         s8_2.setImgStationNum(R.drawable.img_station5);
-        s8_2.setImgStationNum(R.drawable.img_station8);
+        s8_2.setImgStationNum2(R.drawable.img_station8);
 
         StationBean s8_3 = new StationBean();
         s8_3.setImgSeoul(R.drawable.img_seoul);
@@ -1462,13 +1462,13 @@ public class Select2Activity extends AppCompatActivity {
         s8_5.setImgSeoul(R.drawable.img_seoul);
         s8_5.setTxtStationName("잠실");
         s8_5.setImgStationNum(R.drawable.img_station2);
-        s8_5.setImgStationNum(R.drawable.img_station8);
+        s8_5.setImgStationNum2(R.drawable.img_station8);
 
         StationBean s8_6 = new StationBean();
         s8_6.setImgSeoul(R.drawable.img_seoul);
         s8_6.setTxtStationName("석촌");
         s8_6.setImgStationNum(R.drawable.img_station8);
-        s8_6.setImgStationNum(R.drawable.img_station9);
+        s8_6.setImgStationNum2(R.drawable.img_station9);
 
         StationBean s8_7 = new StationBean();
         s8_7.setImgSeoul(R.drawable.img_seoul);
@@ -1479,7 +1479,7 @@ public class Select2Activity extends AppCompatActivity {
         s8_8.setImgSeoul(R.drawable.img_seoul);
         s8_8.setTxtStationName("가락시장");
         s8_8.setImgStationNum(R.drawable.img_station3);
-        s8_8.setImgStationNum(R.drawable.img_station8);
+        s8_8.setImgStationNum2(R.drawable.img_station8);
 
         StationBean s8_9 = new StationBean();
         s8_9.setImgSeoul(R.drawable.img_seoul);
@@ -1836,10 +1836,10 @@ public class Select2Activity extends AppCompatActivity {
                 btnS2.setBackgroundResource(R.drawable.list_line2);
                 btnS3.setBackgroundResource(R.drawable.list_line3);
                 btnS4.setBackgroundResource(R.drawable.list_line4);
-//                btnS5.setBackgroundResource(R.drawable.list_line5);
-//                btnS6.setBackgroundResource(R.drawable.list_line6);
-//                btnS7.setBackgroundResource(R.drawable.list_line7);
-//                btnS8.setBackgroundResource(R.drawable.list_line8);
+                btnS5.setBackgroundResource(R.drawable.list_line5);
+                btnS6.setBackgroundResource(R.drawable.list_line6);
+                btnS7.setBackgroundResource(R.drawable.list_line7);
+                btnS8.setBackgroundResource(R.drawable.list_line8);
 
                 //Adapter를 생성한다.
                 Station2Adapter station2Adapter = new Station2Adapter(Select2Activity.this, stationList1);
@@ -1865,6 +1865,10 @@ public class Select2Activity extends AppCompatActivity {
                 btnS2.setBackgroundResource(R.drawable.list_line2_selected);
                 btnS3.setBackgroundResource(R.drawable.list_line3);
                 btnS4.setBackgroundResource(R.drawable.list_line4);
+                btnS5.setBackgroundResource(R.drawable.list_line5);
+                btnS6.setBackgroundResource(R.drawable.list_line6);
+                btnS7.setBackgroundResource(R.drawable.list_line7);
+                btnS8.setBackgroundResource(R.drawable.list_line8);
 
                 //Adapter를 생성한다
                 Station2Adapter station2Adapter = new Station2Adapter(Select2Activity.this, stationList2);
@@ -1890,6 +1894,10 @@ public class Select2Activity extends AppCompatActivity {
                 btnS2.setBackgroundResource(R.drawable.list_line2);
                 btnS3.setBackgroundResource(R.drawable.list_line3_selected);
                 btnS4.setBackgroundResource(R.drawable.list_line4);
+                btnS5.setBackgroundResource(R.drawable.list_line5);
+                btnS6.setBackgroundResource(R.drawable.list_line6);
+                btnS7.setBackgroundResource(R.drawable.list_line7);
+                btnS8.setBackgroundResource(R.drawable.list_line8);
 
                 //Adapter를 생성한다
                 Station2Adapter station2Adapter = new Station2Adapter(Select2Activity.this, stationList3);
@@ -1915,6 +1923,10 @@ public class Select2Activity extends AppCompatActivity {
                 btnS2.setBackgroundResource(R.drawable.list_line2);
                 btnS3.setBackgroundResource(R.drawable.list_line3);
                 btnS4.setBackgroundResource(R.drawable.list_line4_selected);
+                btnS5.setBackgroundResource(R.drawable.list_line5);
+                btnS6.setBackgroundResource(R.drawable.list_line6);
+                btnS7.setBackgroundResource(R.drawable.list_line7);
+                btnS8.setBackgroundResource(R.drawable.list_line8);
 
                 //Adapter를 생성한다.
                 Station2Adapter station2Adapter = new Station2Adapter(Select2Activity.this, stationList4);
@@ -1937,10 +1949,14 @@ public class Select2Activity extends AppCompatActivity {
                 lstStation7.setVisibility(View.INVISIBLE);
                 lstStation8.setVisibility(View.INVISIBLE);
 
-                btnS1.setBackgroundResource(R.drawable.list_line1_selected);
+                btnS1.setBackgroundResource(R.drawable.list_line1);
                 btnS2.setBackgroundResource(R.drawable.list_line2);
                 btnS3.setBackgroundResource(R.drawable.list_line3);
                 btnS4.setBackgroundResource(R.drawable.list_line4);
+                btnS5.setBackgroundResource(R.drawable.list_line5_selected);
+                btnS6.setBackgroundResource(R.drawable.list_line6);
+                btnS7.setBackgroundResource(R.drawable.list_line7);
+                btnS8.setBackgroundResource(R.drawable.list_line8);
 
                 //Adapter를 생성한다.
                 Station2Adapter station2Adapter = new Station2Adapter(Select2Activity.this, stationList5);
@@ -1964,9 +1980,13 @@ public class Select2Activity extends AppCompatActivity {
                 lstStation8.setVisibility(View.INVISIBLE);
 
                 btnS1.setBackgroundResource(R.drawable.list_line1);
-                btnS2.setBackgroundResource(R.drawable.list_line2_selected);
+                btnS2.setBackgroundResource(R.drawable.list_line2);
                 btnS3.setBackgroundResource(R.drawable.list_line3);
                 btnS4.setBackgroundResource(R.drawable.list_line4);
+                btnS5.setBackgroundResource(R.drawable.list_line5);
+                btnS6.setBackgroundResource(R.drawable.list_line6_selected);
+                btnS7.setBackgroundResource(R.drawable.list_line7);
+                btnS8.setBackgroundResource(R.drawable.list_line8);
 
                 //Adapter를 생성한다.
                 Station2Adapter station2Adapter = new Station2Adapter(Select2Activity.this, stationList6);
@@ -1990,8 +2010,12 @@ public class Select2Activity extends AppCompatActivity {
 
                 btnS1.setBackgroundResource(R.drawable.list_line1);
                 btnS2.setBackgroundResource(R.drawable.list_line2);
-                btnS3.setBackgroundResource(R.drawable.list_line3_selected);
+                btnS3.setBackgroundResource(R.drawable.list_line3);
                 btnS4.setBackgroundResource(R.drawable.list_line4);
+                btnS5.setBackgroundResource(R.drawable.list_line5);
+                btnS6.setBackgroundResource(R.drawable.list_line6);
+                btnS7.setBackgroundResource(R.drawable.list_line7_selected);
+                btnS8.setBackgroundResource(R.drawable.list_line8);
 
                 //Adapter를 생성한다.
                 Station2Adapter station2Adapter = new Station2Adapter(Select2Activity.this, stationList7);
@@ -2016,7 +2040,11 @@ public class Select2Activity extends AppCompatActivity {
                 btnS1.setBackgroundResource(R.drawable.list_line1);
                 btnS2.setBackgroundResource(R.drawable.list_line2);
                 btnS3.setBackgroundResource(R.drawable.list_line3);
-                btnS4.setBackgroundResource(R.drawable.list_line4_selected);
+                btnS4.setBackgroundResource(R.drawable.list_line4);
+                btnS5.setBackgroundResource(R.drawable.list_line5);
+                btnS6.setBackgroundResource(R.drawable.list_line6);
+                btnS7.setBackgroundResource(R.drawable.list_line7);
+                btnS8.setBackgroundResource(R.drawable.list_line8_selected);
 
                 //Adapter를 생성한다.
                 Station2Adapter station2Adapter = new Station2Adapter(Select2Activity.this, stationList8);
