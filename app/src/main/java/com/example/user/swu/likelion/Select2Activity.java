@@ -966,6 +966,565 @@ public class Select2Activity extends AppCompatActivity {
         s5_51.setTxtStationName("마천");
         s5_51.setImgStationNum(R.drawable.img_station5);
 
+        //6호선 삼각지대(역촌~구산) 데이터정보가 상선에서는 없고 하선만 있음
+        //객체 정보(6호선)
+        StationBean s6_1 = new StationBean();
+        s6_1.setImgSeoul(R.drawable.img_seoul);
+        s6_1.setTxtStationName("응암");
+        s6_1.setImgStationNum(R.drawable.img_station6);
+
+        StationBean s6_2 = new StationBean();
+        s6_2.setImgSeoul(R.drawable.img_seoul);
+        s6_2.setTxtStationName("역촌");
+        s6_2.setImgStationNum(R.drawable.img_station6);
+
+        StationBean s6_3 = new StationBean();
+        s6_3.setImgSeoul(R.drawable.img_seoul);
+        s6_3.setTxtStationName("불광");
+        s6_3.setImgStationNum(R.drawable.img_station3);
+        s6_3.setImgStationNum2(R.drawable.img_station6);
+
+        StationBean s6_4 = new StationBean();
+        s6_4.setImgSeoul(R.drawable.img_seoul);
+        s6_4.setTxtStationName("독바위");
+        s6_4.setImgStationNum(R.drawable.img_station6);
+
+        StationBean s6_5 = new StationBean();
+        s6_5.setImgSeoul(R.drawable.img_seoul);
+        s6_5.setTxtStationName("연신내");
+        s6_5.setImgStationNum(R.drawable.img_station3);
+        s6_5.setImgStationNum2(R.drawable.img_station6);
+
+        StationBean s6_6 = new StationBean();
+        s6_6.setImgSeoul(R.drawable.img_seoul);
+        s6_6.setTxtStationName("구산");
+        s6_6.setImgStationNum(R.drawable.img_station6);
+
+        StationBean s6_7 = new StationBean();
+        s6_7.setImgSeoul(R.drawable.img_seoul);
+        s6_7.setTxtStationName("새절");
+        s6_7.setImgStationNum(R.drawable.img_station6);
+
+        StationBean s6_8 = new StationBean();
+        s6_8.setImgSeoul(R.drawable.img_seoul);
+        s6_8.setTxtStationName("증산");
+        s6_8.setImgStationNum(R.drawable.img_station6);
+
+        StationBean s6_9 = new StationBean();
+        s6_9.setImgSeoul(R.drawable.img_seoul);
+        s6_9.setTxtStationName("디지털미디어시티");
+        s6_9.setImgStationNum(R.drawable.img_station6);
+
+        StationBean s6_10 = new StationBean();
+        s6_10.setImgSeoul(R.drawable.img_seoul);
+        s6_10.setTxtStationName("월드컵경기장");
+        s6_10.setImgStationNum(R.drawable.img_station6);
+
+        StationBean s6_11 = new StationBean();
+        s6_11.setImgSeoul(R.drawable.img_seoul);
+        s6_11.setTxtStationName("마포구청");
+        s6_11.setImgStationNum(R.drawable.img_station6);
+
+        StationBean s6_12 = new StationBean();
+        s6_12.setImgSeoul(R.drawable.img_seoul);
+        s6_12.setTxtStationName("망원");
+        s6_12.setImgStationNum(R.drawable.img_station6);
+
+        StationBean s6_13 = new StationBean();
+        s6_13.setImgSeoul(R.drawable.img_seoul);
+        s6_13.setTxtStationName("합정");
+        s6_13.setImgStationNum(R.drawable.img_station2);
+        s6_13.setImgStationNum2(R.drawable.img_station6);
+
+        StationBean s6_14 = new StationBean();
+        s6_14.setImgSeoul(R.drawable.img_seoul);
+        s6_14.setTxtStationName("상수");
+        s6_14.setImgStationNum(R.drawable.img_station6);
+
+        StationBean s6_15 = new StationBean();
+        s6_15.setImgSeoul(R.drawable.img_seoul);
+        s6_15.setTxtStationName("광흥창");
+        s6_15.setImgStationNum(R.drawable.img_station6);
+
+        StationBean s6_16 = new StationBean();
+        s6_16.setImgSeoul(R.drawable.img_seoul);
+        s6_16.setTxtStationName("대흥");
+        s6_16.setImgStationNum(R.drawable.img_station6);
+
+        StationBean s6_17 = new StationBean();
+        s6_17.setImgSeoul(R.drawable.img_seoul);
+        s6_17.setTxtStationName("공덕");
+        s6_17.setImgStationNum(R.drawable.img_station5);
+        s6_17.setImgStationNum2(R.drawable.img_station6);
+
+        StationBean s6_18 = new StationBean();
+        s6_18.setImgSeoul(R.drawable.img_seoul);
+        s6_18.setTxtStationName("효창공원앞");
+        s6_18.setImgStationNum(R.drawable.img_station6);
+
+        StationBean s6_19 = new StationBean();
+        s6_19.setImgSeoul(R.drawable.img_seoul);
+        s6_19.setTxtStationName("삼각지");
+        s6_19.setImgStationNum(R.drawable.img_station4);
+        s6_19.setImgStationNum2(R.drawable.img_station6);
+
+        StationBean s6_20 = new StationBean();
+        s6_20.setImgSeoul(R.drawable.img_seoul);
+        s6_20.setTxtStationName("녹사평");
+        s6_20.setImgStationNum(R.drawable.img_station6);
+
+        StationBean s6_21 = new StationBean();
+        s6_21.setImgSeoul(R.drawable.img_seoul);
+        s6_21.setTxtStationName("이태원");
+        s6_21.setImgStationNum(R.drawable.img_station6);
+
+        StationBean s6_22 = new StationBean();
+        s6_22.setImgSeoul(R.drawable.img_seoul);
+        s6_22.setTxtStationName("한강진");
+        s6_22.setImgStationNum(R.drawable.img_station6);
+
+        StationBean s6_23 = new StationBean();
+        s6_23.setImgSeoul(R.drawable.img_seoul);
+        s6_23.setTxtStationName("버티고개");
+        s6_23.setImgStationNum(R.drawable.img_station6);
+
+        StationBean s6_24 = new StationBean();
+        s6_24.setImgSeoul(R.drawable.img_seoul);
+        s6_24.setTxtStationName("약수");
+        s6_24.setImgStationNum(R.drawable.img_station3);
+        s6_24.setImgStationNum2(R.drawable.img_station6);
+
+        StationBean s6_25 = new StationBean();
+        s6_25.setImgSeoul(R.drawable.img_seoul);
+        s6_25.setTxtStationName("청구");
+        s6_25.setImgStationNum(R.drawable.img_station5);
+        s6_25.setImgStationNum2(R.drawable.img_station6);
+
+        StationBean s6_26 = new StationBean();
+        s6_26.setImgSeoul(R.drawable.img_seoul);
+        s6_26.setTxtStationName("신당");
+        s6_26.setImgStationNum(R.drawable.img_station2);
+        s6_26.setImgStationNum2(R.drawable.img_station6);
+
+        StationBean s6_27 = new StationBean();
+        s6_27.setImgSeoul(R.drawable.img_seoul);
+        s6_27.setTxtStationName("동묘앞");
+        s6_27.setImgStationNum(R.drawable.img_station1);
+        s6_27.setImgStationNum2(R.drawable.img_station6);
+
+        StationBean s6_28 = new StationBean();
+        s6_28.setImgSeoul(R.drawable.img_seoul);
+        s6_28.setTxtStationName("창신");
+        s6_28.setImgStationNum(R.drawable.img_station6);
+
+        StationBean s6_29 = new StationBean();
+        s6_29.setImgSeoul(R.drawable.img_seoul);
+        s6_29.setTxtStationName("보문");
+        s6_29.setImgStationNum(R.drawable.img_station6);
+
+        StationBean s6_30 = new StationBean();
+        s6_30.setImgSeoul(R.drawable.img_seoul);
+        s6_30.setTxtStationName("안암");
+        s6_30.setImgStationNum(R.drawable.img_station6);
+
+        StationBean s6_31 = new StationBean();
+        s6_31.setImgSeoul(R.drawable.img_seoul);
+        s6_31.setTxtStationName("고려대");
+        s6_31.setImgStationNum(R.drawable.img_station6);
+
+        StationBean s6_32 = new StationBean();
+        s6_32.setImgSeoul(R.drawable.img_seoul);
+        s6_32.setTxtStationName("월곡");
+        s6_32.setImgStationNum(R.drawable.img_station6);
+
+        StationBean s6_33 = new StationBean();
+        s6_33.setImgSeoul(R.drawable.img_seoul);
+        s6_33.setTxtStationName("상월곡");
+        s6_33.setImgStationNum(R.drawable.img_station6);
+
+        StationBean s6_34 = new StationBean();
+        s6_34.setImgSeoul(R.drawable.img_seoul);
+        s6_34.setTxtStationName("돌곶이");
+        s6_34.setImgStationNum(R.drawable.img_station6);
+
+        StationBean s6_35 = new StationBean();
+        s6_35.setImgSeoul(R.drawable.img_seoul);
+        s6_35.setTxtStationName("석계");
+        s6_35.setImgStationNum(R.drawable.img_station1);
+        s6_35.setImgStationNum2(R.drawable.img_station6);
+
+        StationBean s6_36 = new StationBean();
+        s6_36.setImgSeoul(R.drawable.img_seoul);
+        s6_36.setTxtStationName("태릉입구");
+        s6_36.setImgStationNum(R.drawable.img_station6);
+        s6_36.setImgStationNum2(R.drawable.img_station7);
+
+        StationBean s6_37 = new StationBean();
+        s6_37.setImgSeoul(R.drawable.img_seoul);
+        s6_37.setTxtStationName("화랑대");
+        s6_37.setImgStationNum(R.drawable.img_station6);
+
+        StationBean s6_38 = new StationBean();
+        s6_38.setImgSeoul(R.drawable.img_seoul);
+        s6_38.setTxtStationName("봉화산");
+        s6_38.setImgStationNum(R.drawable.img_station6);
+
+        //객체 정보(7호선)
+        StationBean s7_1 = new StationBean();
+        s7_1.setImgSeoul(R.drawable.img_seoul);
+        s7_1.setTxtStationName("장암");
+        s7_1.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_2 = new StationBean();
+        s7_2.setImgSeoul(R.drawable.img_seoul);
+        s7_2.setTxtStationName("도봉산");
+        s7_2.setImgStationNum(R.drawable.img_station1);
+        s7_2.setImgStationNum2(R.drawable.img_station7);
+
+        StationBean s7_3 = new StationBean();
+        s7_3.setImgSeoul(R.drawable.img_seoul);
+        s7_3.setTxtStationName("수락산");
+        s7_3.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_4 = new StationBean();
+        s7_4.setImgSeoul(R.drawable.img_seoul);
+        s7_4.setTxtStationName("마들");
+        s7_4.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_5 = new StationBean();
+        s7_5.setImgSeoul(R.drawable.img_seoul);
+        s7_5.setTxtStationName("노원");
+        s7_5.setImgStationNum(R.drawable.img_station4);
+        s7_5.setImgStationNum2(R.drawable.img_station7);
+
+        StationBean s7_6 = new StationBean();
+        s7_6.setImgSeoul(R.drawable.img_seoul);
+        s7_6.setTxtStationName("중계");
+        s7_6.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_7 = new StationBean();
+        s7_7.setImgSeoul(R.drawable.img_seoul);
+        s7_7.setTxtStationName("하계");
+        s7_7.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_8 = new StationBean();
+        s7_8.setImgSeoul(R.drawable.img_seoul);
+        s7_8.setTxtStationName("공릉");
+        s7_8.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_9 = new StationBean();
+        s7_9.setImgSeoul(R.drawable.img_seoul);
+        s7_9.setTxtStationName("태릉입구");
+        s7_9.setImgStationNum(R.drawable.img_station6);
+        s7_9.setImgStationNum2(R.drawable.img_station7);
+
+        StationBean s7_10 = new StationBean();
+        s7_10.setImgSeoul(R.drawable.img_seoul);
+        s7_10.setTxtStationName("먹골");
+        s7_10.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_11 = new StationBean();
+        s7_11.setImgSeoul(R.drawable.img_seoul);
+        s7_11.setTxtStationName("중화");
+        s7_11.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_12 = new StationBean();
+        s7_12.setImgSeoul(R.drawable.img_seoul);
+        s7_12.setTxtStationName("상봉");
+        s7_12.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_13 = new StationBean();
+        s7_13.setImgSeoul(R.drawable.img_seoul);
+        s7_13.setTxtStationName("면목");
+        s7_13.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_14 = new StationBean();
+        s7_14.setImgSeoul(R.drawable.img_seoul);
+        s7_14.setTxtStationName("사가정");
+        s7_14.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_15 = new StationBean();
+        s7_15.setImgSeoul(R.drawable.img_seoul);
+        s7_15.setTxtStationName("용마산");
+        s7_15.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_16 = new StationBean();
+        s7_16.setImgSeoul(R.drawable.img_seoul);
+        s7_16.setTxtStationName("중곡");
+        s7_16.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_17 = new StationBean();
+        s7_17.setImgSeoul(R.drawable.img_seoul);
+        s7_17.setTxtStationName("군자");
+        s7_17.setImgStationNum(R.drawable.img_station5);
+        s7_17.setImgStationNum2(R.drawable.img_station7);
+
+        StationBean s7_18 = new StationBean();
+        s7_18.setImgSeoul(R.drawable.img_seoul);
+        s7_18.setTxtStationName("어린이대공원");
+        s7_18.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_19 = new StationBean();
+        s7_19.setImgSeoul(R.drawable.img_seoul);
+        s7_19.setTxtStationName("건대입구");
+        s7_19.setImgStationNum(R.drawable.img_station2);
+        s7_19.setImgStationNum2(R.drawable.img_station7);
+
+        StationBean s7_20 = new StationBean();
+        s7_20.setImgSeoul(R.drawable.img_seoul);
+        s7_20.setTxtStationName("뚝섬유원지");
+        s7_20.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_21 = new StationBean();
+        s7_21.setImgSeoul(R.drawable.img_seoul);
+        s7_21.setTxtStationName("청담");
+        s7_21.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_22 = new StationBean();
+        s7_22.setImgSeoul(R.drawable.img_seoul);
+        s7_22.setTxtStationName("강남구청");
+        s7_22.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_23 = new StationBean();
+        s7_23.setImgSeoul(R.drawable.img_seoul);
+        s7_23.setTxtStationName("학동");
+        s7_23.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_24 = new StationBean();
+        s7_24.setImgSeoul(R.drawable.img_seoul);
+        s7_24.setTxtStationName("논현");
+        s7_24.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_25 = new StationBean();
+        s7_25.setImgSeoul(R.drawable.img_seoul);
+        s7_25.setTxtStationName("반포");
+        s7_25.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_26 = new StationBean();
+        s7_26.setImgSeoul(R.drawable.img_seoul);
+        s7_26.setTxtStationName("고속터미널");
+        s7_26.setImgStationNum(R.drawable.img_station3);
+        s7_26.setImgStationNum(R.drawable.img_station7);
+        s7_26.setImgStationNum(R.drawable.img_station9);
+
+        StationBean s7_27 = new StationBean();
+        s7_27.setImgSeoul(R.drawable.img_seoul);
+        s7_27.setTxtStationName("내방");
+        s7_27.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_28 = new StationBean();
+        s7_28.setImgSeoul(R.drawable.img_seoul);
+        s7_28.setTxtStationName("총신대입구(이수)");
+        s7_28.setImgStationNum(R.drawable.img_station4);
+        s7_28.setImgStationNum2(R.drawable.img_station7);
+
+        StationBean s7_29 = new StationBean();
+        s7_29.setImgSeoul(R.drawable.img_seoul);
+        s7_29.setTxtStationName("남성");
+        s7_29.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_30 = new StationBean();
+        s7_30.setImgSeoul(R.drawable.img_seoul);
+        s7_30.setTxtStationName("숭실대입구");
+        s7_30.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_31 = new StationBean();
+        s7_31.setImgSeoul(R.drawable.img_seoul);
+        s7_31.setTxtStationName("상도");
+        s7_31.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_32 = new StationBean();
+        s7_32.setImgSeoul(R.drawable.img_seoul);
+        s7_32.setTxtStationName("장승배기");
+        s7_32.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_33 = new StationBean();
+        s7_33.setImgSeoul(R.drawable.img_seoul);
+        s7_33.setTxtStationName("신대방삼거리");
+        s7_33.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_34 = new StationBean();
+        s7_34.setImgSeoul(R.drawable.img_seoul);
+        s7_34.setTxtStationName("보라매");
+        s7_34.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_35 = new StationBean();
+        s7_35.setImgSeoul(R.drawable.img_seoul);
+        s7_35.setTxtStationName("신풍");
+        s7_35.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_36 = new StationBean();
+        s7_36.setImgSeoul(R.drawable.img_seoul);
+        s7_36.setTxtStationName("대림");
+        s7_36.setImgStationNum(R.drawable.img_station2);
+        s7_36.setImgStationNum2(R.drawable.img_station7);
+
+        StationBean s7_37 = new StationBean();
+        s7_37.setImgSeoul(R.drawable.img_seoul);
+        s7_37.setTxtStationName("남구로");
+        s7_37.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_38 = new StationBean();
+        s7_38.setImgSeoul(R.drawable.img_seoul);
+        s7_38.setTxtStationName("가산디지털단지");
+        s7_38.setImgStationNum(R.drawable.img_station1);
+        s7_38.setImgStationNum2(R.drawable.img_station7);
+
+        StationBean s7_39 = new StationBean();
+        s7_39.setImgSeoul(R.drawable.img_seoul);
+        s7_39.setTxtStationName("철산");
+        s7_39.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_40 = new StationBean();
+        s7_40.setImgSeoul(R.drawable.img_seoul);
+        s7_40.setTxtStationName("광명사거리");
+        s7_40.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_41 = new StationBean();
+        s7_41.setImgSeoul(R.drawable.img_seoul);
+        s7_41.setTxtStationName("천왕");
+        s7_41.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_42 = new StationBean();
+        s7_42.setImgSeoul(R.drawable.img_seoul);
+        s7_42.setTxtStationName("온수");
+        s7_42.setImgStationNum(R.drawable.img_station1);
+        s7_42.setImgStationNum2(R.drawable.img_station7);
+
+        StationBean s7_43 = new StationBean();
+        s7_43.setImgSeoul(R.drawable.img_seoul);
+        s7_43.setTxtStationName("까치울");
+        s7_43.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_44 = new StationBean();
+        s7_44.setImgSeoul(R.drawable.img_seoul);
+        s7_44.setTxtStationName("부천종합운동장");
+        s7_44.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_45 = new StationBean();
+        s7_45.setImgSeoul(R.drawable.img_seoul);
+        s7_45.setTxtStationName("춘의");
+        s7_45.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_46 = new StationBean();
+        s7_46.setImgSeoul(R.drawable.img_seoul);
+        s7_46.setTxtStationName("신중동");
+        s7_46.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_47 = new StationBean();
+        s7_47.setImgSeoul(R.drawable.img_seoul);
+        s7_47.setTxtStationName("부천시청");
+        s7_47.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_48 = new StationBean();
+        s7_48.setImgSeoul(R.drawable.img_seoul);
+        s7_48.setTxtStationName("상동");
+        s7_48.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_49 = new StationBean();
+        s7_49.setImgSeoul(R.drawable.img_seoul);
+        s7_49.setTxtStationName("삼산체육관");
+        s7_49.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_50 = new StationBean();
+        s7_50.setImgSeoul(R.drawable.img_seoul);
+        s7_50.setTxtStationName("굴포천");
+        s7_50.setImgStationNum(R.drawable.img_station7);
+
+        StationBean s7_51 = new StationBean();
+        s7_51.setImgSeoul(R.drawable.img_seoul);
+        s7_51.setTxtStationName("부평구청");
+        s7_51.setImgStationNum(R.drawable.img_station7);
+
+        //객체 정보(8호선)
+        StationBean s8_1 = new StationBean();
+        s8_1.setImgSeoul(R.drawable.img_seoul);
+        s8_1.setTxtStationName("암사");
+        s8_1.setImgStationNum(R.drawable.img_station8);
+
+        StationBean s8_2 = new StationBean();
+        s8_2.setImgSeoul(R.drawable.img_seoul);
+        s8_2.setTxtStationName("천호");
+        s8_2.setImgStationNum(R.drawable.img_station5);
+        s8_2.setImgStationNum(R.drawable.img_station8);
+
+        StationBean s8_3 = new StationBean();
+        s8_3.setImgSeoul(R.drawable.img_seoul);
+        s8_3.setTxtStationName("강동구청");
+        s8_3.setImgStationNum(R.drawable.img_station8);
+
+        StationBean s8_4 = new StationBean();
+        s8_4.setImgSeoul(R.drawable.img_seoul);
+        s8_4.setTxtStationName("몽촌토성");
+        s8_4.setImgStationNum(R.drawable.img_station8);
+
+        StationBean s8_5 = new StationBean();
+        s8_5.setImgSeoul(R.drawable.img_seoul);
+        s8_5.setTxtStationName("잠실");
+        s8_5.setImgStationNum(R.drawable.img_station2);
+        s8_5.setImgStationNum(R.drawable.img_station8);
+
+        StationBean s8_6 = new StationBean();
+        s8_6.setImgSeoul(R.drawable.img_seoul);
+        s8_6.setTxtStationName("석촌");
+        s8_6.setImgStationNum(R.drawable.img_station8);
+        s8_6.setImgStationNum(R.drawable.img_station9);
+
+        StationBean s8_7 = new StationBean();
+        s8_7.setImgSeoul(R.drawable.img_seoul);
+        s8_7.setTxtStationName("송파");
+        s8_7.setImgStationNum(R.drawable.img_station8);
+
+        StationBean s8_8 = new StationBean();
+        s8_8.setImgSeoul(R.drawable.img_seoul);
+        s8_8.setTxtStationName("가락시장");
+        s8_8.setImgStationNum(R.drawable.img_station3);
+        s8_8.setImgStationNum(R.drawable.img_station8);
+
+        StationBean s8_9 = new StationBean();
+        s8_9.setImgSeoul(R.drawable.img_seoul);
+        s8_9.setTxtStationName("문정");
+        s8_9.setImgStationNum(R.drawable.img_station8);
+
+        StationBean s8_10 = new StationBean();
+        s8_10.setImgSeoul(R.drawable.img_seoul);
+        s8_10.setTxtStationName("장지");
+        s8_10.setImgStationNum(R.drawable.img_station8);
+
+        StationBean s8_11 = new StationBean();
+        s8_11.setImgSeoul(R.drawable.img_seoul);
+        s8_11.setTxtStationName("복정");
+        s8_11.setImgStationNum(R.drawable.img_station8);
+
+        StationBean s8_12 = new StationBean();
+        s8_12.setImgSeoul(R.drawable.img_seoul);
+        s8_12.setTxtStationName("산성");
+        s8_12.setImgStationNum(R.drawable.img_station8);
+
+        StationBean s8_13 = new StationBean();
+        s8_13.setImgSeoul(R.drawable.img_seoul);
+        s8_13.setTxtStationName("남한산성입구");
+        s8_13.setImgStationNum(R.drawable.img_station8);
+
+        StationBean s8_14 = new StationBean();
+        s8_14.setImgSeoul(R.drawable.img_seoul);
+        s8_14.setTxtStationName("단대오거리");
+        s8_14.setImgStationNum(R.drawable.img_station8);
+
+        StationBean s8_15 = new StationBean();
+        s8_15.setImgSeoul(R.drawable.img_seoul);
+        s8_15.setTxtStationName("신흥");
+        s8_15.setImgStationNum(R.drawable.img_station8);
+
+        StationBean s8_16 = new StationBean();
+        s8_16.setImgSeoul(R.drawable.img_seoul);
+        s8_16.setTxtStationName("수진");
+        s8_16.setImgStationNum(R.drawable.img_station8);
+
+        StationBean s8_17 = new StationBean();
+        s8_17.setImgSeoul(R.drawable.img_seoul);
+        s8_17.setTxtStationName("모란");
+        s8_17.setImgStationNum(R.drawable.img_station8);
 
         //객체 추가
         final List<StationBean> stationList1 = new ArrayList<>();
@@ -1143,8 +1702,116 @@ public class Select2Activity extends AppCompatActivity {
         stationList5.add(s5_51);
 
         final List<StationBean> stationList6 = new ArrayList<>();
+        stationList6.add(s6_1);
+        stationList6.add(s6_2);
+        stationList6.add(s6_3);
+        stationList6.add(s6_4);
+        stationList6.add(s6_5);
+        stationList6.add(s6_6);
+        stationList6.add(s6_7);
+        stationList6.add(s6_8);
+        stationList6.add(s6_9);
+        stationList6.add(s6_10);
+        stationList6.add(s6_11);
+        stationList6.add(s6_12);
+        stationList6.add(s6_13);
+        stationList6.add(s6_14);
+        stationList6.add(s6_15);
+        stationList6.add(s6_16);
+        stationList6.add(s6_17);
+        stationList6.add(s6_18);
+        stationList6.add(s6_19);
+        stationList6.add(s6_20);
+        stationList6.add(s6_21);
+        stationList6.add(s6_22);
+        stationList6.add(s6_23);
+        stationList6.add(s6_24);
+        stationList6.add(s6_25);
+        stationList6.add(s6_26);
+        stationList6.add(s6_27);
+        stationList6.add(s6_28);
+        stationList6.add(s6_29);
+        stationList6.add(s6_30);
+        stationList6.add(s6_31);
+        stationList6.add(s6_32);
+        stationList6.add(s6_33);
+        stationList6.add(s6_34);
+        stationList6.add(s6_35);
+        stationList6.add(s6_36);
+        stationList6.add(s6_37);
+        stationList6.add(s6_38);
+
         final List<StationBean> stationList7 = new ArrayList<>();
+        stationList7.add(s7_1);
+        stationList7.add(s7_2);
+        stationList7.add(s7_3);
+        stationList7.add(s7_4);
+        stationList7.add(s7_5);
+        stationList7.add(s7_6);
+        stationList7.add(s7_7);
+        stationList7.add(s7_8);
+        stationList7.add(s7_9);
+        stationList7.add(s7_10);
+        stationList7.add(s7_11);
+        stationList7.add(s7_12);
+        stationList7.add(s7_13);
+        stationList7.add(s7_14);
+        stationList7.add(s7_15);
+        stationList7.add(s7_16);
+        stationList7.add(s7_17);
+        stationList7.add(s7_18);
+        stationList7.add(s7_19);
+        stationList7.add(s7_20);
+        stationList7.add(s7_21);
+        stationList7.add(s7_22);
+        stationList7.add(s7_23);
+        stationList7.add(s7_24);
+        stationList7.add(s7_25);
+        stationList7.add(s7_26);
+        stationList7.add(s7_27);
+        stationList7.add(s7_28);
+        stationList7.add(s7_29);
+        stationList7.add(s7_30);
+        stationList7.add(s7_31);
+        stationList7.add(s7_32);
+        stationList7.add(s7_33);
+        stationList7.add(s7_34);
+        stationList7.add(s7_35);
+        stationList7.add(s7_36);
+        stationList7.add(s7_37);
+        stationList7.add(s7_38);
+        stationList7.add(s7_39);
+        stationList7.add(s7_40);
+        stationList7.add(s7_41);
+        stationList7.add(s7_42);
+        stationList7.add(s7_43);
+        stationList7.add(s7_44);
+        stationList7.add(s7_45);
+        stationList7.add(s7_46);
+        stationList7.add(s7_47);
+        stationList7.add(s7_48);
+        stationList7.add(s7_49);
+        stationList7.add(s7_50);
+        stationList7.add(s7_51);
+
         final List<StationBean> stationList8 = new ArrayList<>();
+        stationList8.add(s8_1);
+        stationList8.add(s8_2);
+        stationList8.add(s8_3);
+        stationList8.add(s8_4);
+        stationList8.add(s8_5);
+        stationList8.add(s8_6);
+        stationList8.add(s8_7);
+        stationList8.add(s8_8);
+        stationList8.add(s8_9);
+        stationList8.add(s8_10);
+        stationList8.add(s8_11);
+        stationList8.add(s8_12);
+        stationList8.add(s8_13);
+        stationList8.add(s8_14);
+        stationList8.add(s8_15);
+        stationList8.add(s8_16);
+        stationList8.add(s8_17);
 
         //디폴트로 4호선 리스트 나오게
         lstStation4.setVisibility(View.VISIBLE);
