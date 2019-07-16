@@ -297,15 +297,6 @@ public class MainActivity extends AppCompatActivity{
                 }
             }
 
-
-//            double[] closest_stn = new double[rowSize];
-//            for(int i = 0; i < rowSize; i++){
-//                closest_stn[i] = distance[i];
-//            }
-//
-//            Arrays.sort(distance);
-//            closest_distance = distance[0];
-
             for(int i = 0; i < rowSize; i++){
                 if(closest_distance == distance[i]){
                     closest = arrayStationName[i];
