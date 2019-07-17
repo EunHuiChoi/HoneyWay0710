@@ -1863,11 +1863,11 @@ public class Select2Activity extends AppCompatActivity {
         stationList8.add(s8_16);
         stationList8.add(s8_17);
 
-        //디폴트로 4호선 리스트 나오게
-        lstStation4.setVisibility(View.VISIBLE);
-        btnS4.setBackgroundResource(R.drawable.list_line4_selected);
-        Station2Adapter station2Adapter = new Station2Adapter(Select2Activity.this, stationList4);//Adapter를 생성한다.
-        lstStation4.setAdapter(station2Adapter);//Adapter를 ListView에 부착시킨다.
+        //디폴트로 1호선 리스트 나오게
+        lstStation1.setVisibility(View.VISIBLE);
+        btnS1.setBackgroundResource(R.drawable.list_line1_selected);
+        Station2Adapter station2Adapter = new Station2Adapter(Select2Activity.this, stationList1);//Adapter를 생성한다.
+        lstStation1.setAdapter(station2Adapter);//Adapter를 ListView에 부착시킨다.
 
         //버튼 이벤트
         btnS1.setOnClickListener(new View.OnClickListener() {
