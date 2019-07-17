@@ -74,6 +74,8 @@ public class MainActivity extends AppCompatActivity{
     int[] arrayLineNum;
     double[] arrayLatitude;
     double[] arrayLongtitude ;
+    String[] arrayStationEngName;
+
     int rowSize;
 
     @Override
@@ -90,7 +92,7 @@ public class MainActivity extends AppCompatActivity{
         myHelper = new myDBHelper(this);
         locationDB = myHelper.getReadableDatabase();
         Cursor cursor;
-        cursor = locationDB.rawQuery("SELECT * FROM gps", null);
+        cursor = locationDB.rawQuery("SELECT * FROM gpsLocation", null);
 
         rowSize = cursor.getCount();
         arrayStationNo = new int[rowSize];
@@ -98,6 +100,7 @@ public class MainActivity extends AppCompatActivity{
         arrayLineNum = new int[rowSize];
         arrayLatitude = new double[rowSize];
         arrayLongtitude = new double[rowSize];
+        arrayStationEngName = new String[rowSize];
 
         int i = 0;
         while(cursor.moveToNext()){
@@ -106,6 +109,7 @@ public class MainActivity extends AppCompatActivity{
             arrayLineNum[i] = cursor.getInt(2);
             arrayLatitude[i] = cursor.getDouble(3);
             arrayLongtitude[i] = cursor.getDouble(4);
+            arrayStationEngName[i] = cursor.getString(5);
             i++;
         }
 
@@ -300,7 +304,7 @@ public class MainActivity extends AppCompatActivity{
             for(int i = 0; i < rowSize; i++){
                 if(closest_distance == distance[i]){
                     closest = arrayStationName[i];
-                    closest2 = "StationEnglishName";
+                    closest2 = arrayStationEngName[i];
                     btn_1.setVisibility(View.GONE);
                     btn_2.setVisibility(View.GONE);
                     btn_3.setVisibility(View.GONE);
