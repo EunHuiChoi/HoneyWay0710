@@ -1,5 +1,5 @@
 package com.example.user.swu.likelion;
-
+//도착역 설정 페이지
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -464,6 +464,48 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
         s2_43.setTxtStationName("충정로");
         s2_43.setImgStationNum(R.drawable.img_station2);
         s2_43.setImgStationNum2(R.drawable.img_station5);
+
+        StationBean s2_44 = new StationBean();
+        s2_44.setImgSeoul(R.drawable.img_seoul);
+        s2_44.setTxtStationName("용답");
+        s2_44.setImgStationNum(R.drawable.img_station2);
+
+        StationBean s2_45 = new StationBean();
+        s2_45.setImgSeoul(R.drawable.img_seoul);
+        s2_45.setTxtStationName("신답");
+        s2_45.setImgStationNum(R.drawable.img_station2);
+
+        StationBean s2_46 = new StationBean();
+        s2_46.setImgSeoul(R.drawable.img_seoul);
+        s2_46.setTxtStationName("신설동");
+        s2_46.setImgStationNum(R.drawable.img_station1);
+        s2_46.setImgStationNum2(R.drawable.img_station2);
+
+        StationBean s2_47 = new StationBean();
+        s2_47.setImgSeoul(R.drawable.img_seoul);
+        s2_47.setTxtStationName("용두");
+        s2_47.setImgStationNum(R.drawable.img_station2);
+
+        StationBean s2_48 = new StationBean();
+        s2_48.setImgSeoul(R.drawable.img_seoul);
+        s2_48.setTxtStationName("도림천");
+        s2_48.setImgStationNum(R.drawable.img_station2);
+
+        StationBean s2_49 = new StationBean();
+        s2_49.setImgSeoul(R.drawable.img_seoul);
+        s2_49.setTxtStationName("양천구청");
+        s2_49.setImgStationNum(R.drawable.img_station2);
+
+        StationBean s2_50 = new StationBean();
+        s2_50.setImgSeoul(R.drawable.img_seoul);
+        s2_50.setTxtStationName("신정네거리");
+        s2_50.setImgStationNum(R.drawable.img_station2);
+
+        StationBean s2_51 = new StationBean();
+        s2_51.setImgSeoul(R.drawable.img_seoul);
+        s2_51.setTxtStationName("까치산");
+        s2_51.setImgStationNum(R.drawable.img_station2);
+        s2_51.setImgStationNum2(R.drawable.img_station5);
 
         //객체 정보(3호선)
         StationBean s3_1 = new StationBean();
@@ -1680,6 +1722,14 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
         stationList2.add(s2_41);
         stationList2.add(s2_42);
         stationList2.add(s2_43);
+        stationList2.add(s2_44);
+        stationList2.add(s2_45);
+        stationList2.add(s2_46);
+        stationList2.add(s2_47);
+        stationList2.add(s2_48);
+        stationList2.add(s2_49);
+        stationList2.add(s2_50);
+        stationList2.add(s2_51);
 
         final List<StationBean> stationList3 = new ArrayList<>();
         stationList3.add(s3_1);

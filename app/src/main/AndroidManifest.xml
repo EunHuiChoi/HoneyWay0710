@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.user.swu.likelion">
-
     <!-- 위치권한 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -14,8 +13,13 @@
         android:roundIcon="@drawable/logo_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StationMapAActivity"></activity>
-        <meta-data android:name="com.samsung.android.icon_container.has_icon_container" android:value="true"/>
+        <activity android:name=".FiveRoadActivity"></activity>
+        <activity android:name=".StationMapAActivity" />
+
+        <meta-data
+            android:name="com.samsung.android.icon_container.has_icon_container"
+            android:value="true" />
+
         <activity
             android:name=".SplashActivity"
             android:theme="@style/SplashTheme">
@@ -38,9 +42,8 @@
         <activity android:name=".ResultActivity" />
         <activity android:name=".DetailActivity" />
         <activity android:name=".CongestionActivity" />
-        <activity android:name=".SelectActivity" />
-        <!-- <activity android:name=".SplashActivity"></activity> -->
-        <activity android:name=".Select2Activity"></activity>
+        <activity android:name=".SelectActivity" /> <!-- <activity android:name=".SplashActivity"></activity> -->
+        <activity android:name=".Select2Activity" />
         <activity android:name=".StationMapDActivity" />
     </application>
 
