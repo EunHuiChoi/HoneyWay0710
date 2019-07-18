@@ -1,22 +1,32 @@
-package com.example.user.swu.likelion;
+package com.example.user.swu.likelion.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.user.swu.likelion.R;
+import com.example.user.swu.likelion.SelectActivity;
+import com.example.user.swu.likelion.StationBean;
+
+import java.util.ArrayList;
 import java.util.List;
 
-public class Station2Adapter extends BaseAdapter {
+import static com.google.android.gms.common.internal.safeparcel.SafeParcelable.NULL;
+
+public class StationAdapter extends BaseAdapter{
+
     private Context mContext;
     private List<StationBean> mList;
 
     //public  ArrayList<String> DepartArrive; //세영
 
-    public Station2Adapter(Context context, List<StationBean> list) {
+    public StationAdapter(Context context, List<StationBean> list) {
         mContext = context;
         mList = list;
     }
@@ -39,7 +49,7 @@ public class Station2Adapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         //인플레이팅 하는 작업
-        // mDepartArrive.add("동대문역사문화공원");
+       // mDepartArrive.add("동대문역사문화공원");
         LayoutInflater inflater = (LayoutInflater)
                 mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         convertView = inflater.inflate(R.layout.view_station, null);
@@ -64,18 +74,16 @@ public class Station2Adapter extends BaseAdapter {
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(Select2Activity.DepartArrive.size()>=1){
-                    Select2Activity.DepartArrive.remove(0);
+                if (SelectActivity.DepartArrive.get(0).equals(stationBean.getTxtStationName())){
+                    Toast.makeText(mContext,"출발역과 동일합니다.", Toast.LENGTH_SHORT).show();
+                }else {
+                    if (SelectActivity.DepartArrive.size() >= 2) {
+                        SelectActivity.DepartArrive.remove(1);
+                    }
+                    SelectActivity.DepartArrive.add(1, stationBean.getTxtStationName());
+
+                    SelectActivity.txtvArrive.setText(stationBean.getTxtStationName());
                 }
-                Select2Activity.DepartArrive.add(0,stationBean.getTxtStationName());
-
-                Select2Activity.text_start.setText(stationBean.getTxtStationName());
-                //convertView.setBackgroundColor(0x8CC7EC);
-
-                //Intent i = new Intent(mContext, CongestionActivity.class);
-                //선택된 ROW의 Bean 데이터를 싣는다.
-                //i.putExtra("stationBean",stationBean.getTxtStationName() );
-                //mContext.startActivity(i); //화면이동
 
             }
         });

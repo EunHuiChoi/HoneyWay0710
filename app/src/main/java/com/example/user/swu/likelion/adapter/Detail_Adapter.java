@@ -1,4 +1,4 @@
-package com.example.user.swu.likelion;
+package com.example.user.swu.likelion.adapter;
 
 
 import android.support.annotation.NonNull;
@@ -8,6 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.user.swu.likelion.Detail_Info;
+import com.example.user.swu.likelion.R;
 
 import java.util.ArrayList;
 

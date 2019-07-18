@@ -14,6 +14,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.user.swu.likelion.adapter.Station2Adapter;
+
 import java.util.List;
 
 
