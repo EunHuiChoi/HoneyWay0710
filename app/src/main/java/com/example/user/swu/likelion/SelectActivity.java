@@ -48,13 +48,20 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
     SimpleDateFormat sdfDay = new SimpleDateFormat("E");
     String formatDay = sdfDay.format(date);
 
-    // formatHour 변수에 시간 값 저장
-    SimpleDateFormat sdfHour = new SimpleDateFormat("HH");
+
+    ////190720 태영 시간 수정
+    // formatHour 변수에 시 값 저장
+    SimpleDateFormat sdfHour = new SimpleDateFormat("H");
     String formatHour = sdfHour.format(date);
 
+    //formatMinute 변수에 분 값 저장
+    SimpleDateFormat sdfMinute = new SimpleDateFormat("m");
+    String formatMinute = sdfMinute.format(date);
+
+    String formatTime = formatHour+":"+formatMinute;
     // formatTime 변수에 시간 값 저장
-    SimpleDateFormat sdfTime = new SimpleDateFormat("HH:mm");
-    String formatTime = sdfTime.format(date);
+//    SimpleDateFormat sdfTime = new SimpleDateFormat("HH:mm");
+//    String formatTime = sdfTime.format(date);
 
     //[태영 DB]
     String TAG = this.getClass().getSimpleName();
@@ -110,7 +117,6 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
             day="week";
         }
 
-
         txtvTime.setText(day+" "+formatTime);
 
         Log.d(TAG,formatTime+","+day);
@@ -124,6 +130,8 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select);
+
+        Log.d(TAG,"Hour ==> "+formatHour+" & Minute ==> "+formatMinute);
 
         Intent intent = getIntent();
         DepartArrive = intent.getStringArrayListExtra("DepartArrive");

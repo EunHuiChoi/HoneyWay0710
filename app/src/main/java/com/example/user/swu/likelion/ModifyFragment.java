@@ -76,11 +76,7 @@ public class ModifyFragment extends DialogFragment{
         timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
             @Override
             public void onTimeChanged(TimePicker timePicker, int h, int m) {
-                if(h<10){
-                    hour="0"+h;
-                }else{
-                    hour=String.valueOf(h);
-                }
+                hour=String.valueOf(h);
                 minute = String.valueOf(m);
                 Toast.makeText(getContext(), "h=>"+hour+", m=>"+minute, Toast.LENGTH_SHORT).show();
 
