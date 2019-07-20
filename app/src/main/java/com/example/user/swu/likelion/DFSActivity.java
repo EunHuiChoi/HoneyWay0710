@@ -633,7 +633,7 @@ public class DFSActivity extends AppCompatActivity{
         structInfo[] infos = new structInfo[5];
 
         int j = queue.size();
-        Intent intent2 = new Intent(this.getApplicationContext(),FiveRoadActivity.class);
+        Intent intent2 = new Intent(this.getApplicationContext(),CongestionActivity.class); //FiveRoadActivity.class);
         for(int z=0; z<j; z++){
             structInfo imsi = queue.poll();
             imsi.congestions = new String[imsi.hoseons.length];
@@ -662,6 +662,13 @@ public class DFSActivity extends AppCompatActivity{
         //Log.d(TAG,"rowSize => "+rowSize+" & result => "+result)
         congestionDB.close();
         intent2.putExtra("INFOS",infos);
+
+        String formatTime = hour+"시 "+minute+"분";
+        intent2.putExtra("FORMATTIME", formatTime);
+        intent2.putExtra("DAY", day);
+        intent2.putExtra("DEPART", depart);
+        intent2.putExtra("ARRIVE", arrive);
+        //startActivity(intent);
         startActivity(intent2);
     }
 
