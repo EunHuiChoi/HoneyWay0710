@@ -1,15 +1,21 @@
 package com.example.user.swu.likelion.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.user.swu.likelion.CongestionActivity;
 import com.example.user.swu.likelion.R;
 import com.example.user.swu.likelion.Select2Activity;
+import com.example.user.swu.likelion.SelectActivity;
 import com.example.user.swu.likelion.StationBean;
 
 import java.util.List;
@@ -57,6 +63,8 @@ public class Station2Adapter extends BaseAdapter {
         ImageView imgStationNum = convertView.findViewById(R.id.imgStationNum);
         ImageView imgStationNum2 = convertView.findViewById(R.id.imgStationNum2);
         ImageView imgStationNum3 = convertView.findViewById(R.id.imgStationNum3);
+        final LinearLayout stationItem = convertView.findViewById(R.id.stationItem);
+
         //데이터 셋팅
         imgSeoul.setImageResource( stationBean.getImgSeoul() );
         txtStationName.setText( stationBean.getTxtStationName() );
@@ -74,9 +82,12 @@ public class Station2Adapter extends BaseAdapter {
                 Select2Activity.DepartArrive.add(0,stationBean.getTxtStationName());
 
                 Select2Activity.text_start.setText(stationBean.getTxtStationName());
+
+                //Toast.makeText(mContext, "클릭", Toast.LENGTH_SHORT).show();
+                //stationItem.setBackgroundColor(0xF5DA81);
                 //convertView.setBackgroundColor(0x8CC7EC);
 
-                //Intent i = new Intent(mContext, CongestionActivity.class);
+                //Intent i = new Intent(mContext, SelectActivity.class);
                 //선택된 ROW의 Bean 데이터를 싣는다.
                 //i.putExtra("stationBean",stationBean.getTxtStationName() );
                 //mContext.startActivity(i); //화면이동

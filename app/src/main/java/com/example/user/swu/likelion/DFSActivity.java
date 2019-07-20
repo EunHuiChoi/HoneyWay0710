@@ -658,7 +658,7 @@ public class DFSActivity extends AppCompatActivity {
         }
         Intent intent2 = new Intent(this.getApplicationContext(),FiveRoadActivity.class);
         intent.putExtra("INFOS",infos);
-        startActivity(intent);
+        //startActivity(intent);
 
         //Log.d(TAG,"rowSize => "+rowSize+" & result => "+result)
         congestionDB.close();
@@ -847,8 +847,8 @@ public class DFSActivity extends AppCompatActivity {
                 for (int i = 0; i < count; i++) {
                     if (num >= 1) {
                         if (returnStation(stack.elementAt(i)).equals(returnStation(stack.elementAt(i - 1)))) {
-                            if(stack.size()>2 && returnStation(stack.elementAt(i)).equals(returnStation(stack.elementAt(i - 1)))){
-                                if(returnStation(stack.elementAt(i-1)).equals(returnStation(stack.elementAt(i - 2)))) {
+                            if(stack.size()>2 && num>1){
+                                if(returnStation(stack.elementAt(i)).equals(returnStation(stack.elementAt(i - 1))) && returnStation(stack.elementAt(i-1)).equals(returnStation(stack.elementAt(i - 2)))) {
                                     stack.pop(); //DFS에서 빠져나오기
                                     hwanseungs[limit] = 0;
                                     limit -= 1;
