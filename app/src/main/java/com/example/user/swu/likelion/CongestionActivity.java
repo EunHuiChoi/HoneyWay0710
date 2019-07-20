@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -47,6 +48,7 @@ public class CongestionActivity extends AppCompatActivity {
         //앞 화면에서 받은 intent
         Intent intent = getIntent();
         //final String a = intent.getStringExtra("stationBean");
+        final int arrive_line_num = intent.getIntExtra("arrive_line_num",0); //도착역 호선 세영
         final String formatTime = intent.getStringExtra("FORMATTIME"); //출발시간
         final String depart = intent.getStringExtra("DEPART"); //출발역
         final String arrive = intent.getStringExtra("ARRIVE"); //도착역

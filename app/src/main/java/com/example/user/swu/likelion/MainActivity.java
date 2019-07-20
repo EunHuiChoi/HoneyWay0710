@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity{
 
     TextView time;
     //Button Refresh;
-    Button btn_0, btn_1,btn_2, btn_3, btn_4, btn_5, btn_6, btn_7, btn_9;
+    Button btn_0, btn_1,btn_2, btn_3, btn_4, btn_5, btn_6, btn_7, btn_8, btn_9;
     ImageButton btn_next;
     ImageButton btn_StartStation;
     ImageView imageview = null;
@@ -129,6 +129,7 @@ public class MainActivity extends AppCompatActivity{
         btn_5 = (Button) findViewById(R.id.btn_5);
         btn_6 = (Button) findViewById(R.id.btn_6);
         btn_7 = (Button) findViewById(R.id.btn_7);
+        btn_8 = (Button) findViewById(R.id.btn_8);
         btn_9 = (Button) findViewById(R.id.btn_9);
         btn_next = (ImageButton) findViewById(R.id.btn_next);
         btn_StartStation = (ImageButton) findViewById(R.id.btn_StartStation);
@@ -138,8 +139,6 @@ public class MainActivity extends AppCompatActivity{
         textView5 = (TextView)findViewById(R.id.textView5);
 
         //1,2,3,4,5,6,7,9 시작
-        String btn;
-        btn="btn_0";
         btn_0.setVisibility(View.VISIBLE);
         btn_1.setVisibility(View.GONE);
         btn_2.setVisibility(View.GONE);
@@ -148,6 +147,7 @@ public class MainActivity extends AppCompatActivity{
         btn_5.setVisibility(View.GONE);
         btn_6.setVisibility(View.GONE);
         btn_7.setVisibility(View.GONE);
+        btn_8.setVisibility(View.GONE);
         btn_9.setVisibility(View.GONE);
 
 
@@ -157,56 +157,63 @@ public class MainActivity extends AppCompatActivity{
         btn_1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                imageview.setImageResource(R.drawable.simbol_1st);
+                imageview.setImageResource(R.drawable.simbol_1);
             };
         });
 
         btn_2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                imageview.setImageResource(R.drawable.simbol_2nd);
+                imageview.setImageResource(R.drawable.simbol_2);
             };
         });
 
         btn_3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                imageview.setImageResource(R.drawable.simbol_3nd);
+                imageview.setImageResource(R.drawable.simbol_3);
             };
         });
 
         btn_4.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                imageview.setImageResource(R.drawable.simbol);
+                imageview.setImageResource(R.drawable.simbol_4);
             };
         });
 
         btn_5.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                imageview.setImageResource(R.drawable.simbol_5th);
+                imageview.setImageResource(R.drawable.simbol_5);
             };
         });
 
         btn_6.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                imageview.setImageResource(R.drawable.simbol_6nd);
+                imageview.setImageResource(R.drawable.simbol_6);
             };
         });
 
         btn_7.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                imageview.setImageResource(R.drawable.simbol_7nd);
+                imageview.setImageResource(R.drawable.simbol_7);
+            };
+        });
+
+        btn_8.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                imageview.setImageResource(R.drawable.simbol_7);
             };
         });
 
         btn_9.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                imageview.setImageResource(R.drawable.simbol_9th);
+                imageview.setImageResource(R.drawable.simbol_9);
             };
         });
 
@@ -296,6 +303,8 @@ public class MainActivity extends AppCompatActivity{
             }
 
             String closest = "", closest2 = "";
+            int closest_num = 0;
+            int simbol_color_num =0;
             double closest_distance = distance[0];
 
             // distance배열중 가장 작은 걸 찾아서 closest distance에 넣는다.
@@ -309,21 +318,44 @@ public class MainActivity extends AppCompatActivity{
                 if(closest_distance == distance[i]){
                     closest = arrayStationName[i];
                     closest2 = arrayStationEngName[i];
+                    closest_num= arrayLineNum[i];
+
                     btn_1.setVisibility(View.GONE);
                     btn_2.setVisibility(View.GONE);
                     btn_3.setVisibility(View.GONE);
-                    btn_4.setVisibility(View.VISIBLE);
+                    btn_4.setVisibility(View.GONE);
                     btn_5.setVisibility(View.GONE);
                     btn_6.setVisibility(View.GONE);
                     btn_7.setVisibility(View.GONE);
                     btn_9.setVisibility(View.GONE);
-
                 }
             }
 
             textview4.setText(closest);
             textView5.setText(closest2);
+
+
+            //세영 추가
+            if(closest_num<10) {
+                line_color(closest_num);
+                simbol_color_num=closest_num;
+                simbol_color(simbol_color_num);
+            }else if(closest_num<100 & closest_num>9){
+                line_color(closest_num);
+                line_color(closest_num%10);
+                simbol_color_num=closest_num&10;
+                simbol_color(simbol_color_num);
+            }else{ //if(closest_num<1000 & closest_num>99)
+                line_color(closest_num);
+                line_color(closest_num%10);
+                line_color(closest_num%100);
+                simbol_color_num=closest_num&100;
+                simbol_color(simbol_color_num);
+            }
+
         }
+
+
 
         public void onStatusChanged(String provider, int status, Bundle extras) {
         }
@@ -361,35 +393,8 @@ public class MainActivity extends AppCompatActivity{
         return false;
     }
 
-    //사용자에게 가까운 역의 호선 색
-    public void  btn1_color(){
-        btn_1.setVisibility(View.GONE);
-    }
-    public void  btn2_color(){
-        btn_1.setVisibility(View.GONE);
-    }
-    public void  btn3_color(){
-        btn_1.setVisibility(View.GONE);
-    }
-    public void  btn4_color(){
-        btn_1.setVisibility(View.GONE);
-    }
-    public void  btn5_color(){
-        btn_1.setVisibility(View.GONE);
-    }
-    public void  btn6_color(){
-        btn_1.setVisibility(View.GONE);
-    }
-    public void  btn7_color(){
-        btn_1.setVisibility(View.GONE);
-    }
-    public void  btn8_color(){
-        btn_1.setVisibility(View.GONE);
-    }
-    public void  btn9_color(){
-        btn_1.setVisibility(View.GONE);
-    }
 
+    //DB 복사
     public void copyDataBase(){
         Log.d("Working", "copyDatabase");
         AssetManager manager = mContext.getAssets();
@@ -429,4 +434,51 @@ public class MainActivity extends AppCompatActivity{
             Log.e("Error : ", e.getMessage());
         }
     }
+
+    //사용자에게 가까운 역의 호선 작은 버튼
+    public void line_color(int closest_num_select){
+        if (closest_num_select == 1) {
+            btn_1.setVisibility(View.VISIBLE);
+        } else if (closest_num_select == 2) {
+            btn_2.setVisibility(View.VISIBLE);
+        } else if (closest_num_select == 3) {
+            btn_3.setVisibility(View.VISIBLE);
+        } else if (closest_num_select == 4) {
+            btn_4.setVisibility(View.VISIBLE);
+        } else if (closest_num_select == 5) {
+            btn_5.setVisibility(View.VISIBLE);
+        } else if (closest_num_select == 6) {
+            btn_6.setVisibility(View.VISIBLE);
+        } else if (closest_num_select == 7) {
+            btn_7.setVisibility(View.VISIBLE);
+        } /*else if (arrayLineNum[i] == 8) {
+            btn_8.setVisibility(View.VISIBLE);
+        }*/ else if (closest_num_select == 9) {
+            btn_9.setVisibility(View.VISIBLE);
+        }
+    }
+
+    //사용자에게 가까운 역의 호선 색 띠
+    public void simbol_color(int simbol_color_num){
+        if(simbol_color_num==1) {
+            imageview.setImageResource(R.drawable.simbol_1);
+        }else if (simbol_color_num==2) {
+            imageview.setImageResource(R.drawable.simbol_2);
+        }else if (simbol_color_num==3) {
+            imageview.setImageResource(R.drawable.simbol_3);
+        }else if (simbol_color_num==4) {
+            imageview.setImageResource(R.drawable.simbol_4);
+        }else if (simbol_color_num==5) {
+            imageview.setImageResource(R.drawable.simbol_5);
+        }else if (simbol_color_num==6) {
+            imageview.setImageResource(R.drawable.simbol_6);
+        }else if (simbol_color_num==7) {
+            imageview.setImageResource(R.drawable.simbol_7);
+        }else if (simbol_color_num==8) {
+            imageview.setImageResource(R.drawable.simbol_8);
+        }else if (simbol_color_num==9) {
+            imageview.setImageResource(R.drawable.simbol_9);
+        }
+    }
+
 }

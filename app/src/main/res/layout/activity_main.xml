@@ -106,7 +106,7 @@
                         android:id="@+id/imageView"
                         android:layout_width="wrap_content"
                         android:layout_height="242dp"
-                        android:src="@drawable/final_simbol" />
+                        android:src="@drawable/simbol_1" />
                 </FrameLayout>
 
                 <LinearLayout
@@ -242,6 +242,14 @@
                     android:layout_marginRight="10dp"
                     android:layout_weight="0"
                     android:background="@drawable/line7" />
+
+                <Button
+                    android:id="@+id/btn_8"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="0"
+                    android:background="@drawable/line8" />
 
                 <Button
                     android:id="@+id/btn_9"
