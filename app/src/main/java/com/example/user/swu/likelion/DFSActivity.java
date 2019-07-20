@@ -767,40 +767,32 @@ public class DFSActivity extends AppCompatActivity {
 
                 //// 스택값 출력
                 int count = stack.size(); //스택의 크기를 받을 변수
-                //int totalStation = 0;
-                //int totalTime = 0;
-                //int hwanseung = 0;
                 int num = 0;
                 for (int i = 0; i < count; i++) {
                     if (num >= 1) {
                         if (returnStation(stack.elementAt(i)).equals(returnStation(stack.elementAt(i - 1)))) {
-                            //totalTime += maps[stack.elementAt(i - 1)][stack.elementAt(i)];
-                            //hwanseung += 1;
                             if(stack.size()>2 && returnStation(stack.elementAt(i)).equals(returnStation(stack.elementAt(i - 1))) && returnStation(stack.elementAt(i-1)).equals(returnStation(stack.elementAt(i - 2)))){
-                                stack.pop(); //DFS에서 빠져나올땐  pop을 합니다.
+                                stack.pop(); //DFS에서 빠져나오기
                                 hwanseungs[limit] = 0;
                                 limit -= 1;
                                 return;
                             }
                             info.totalTime += maps[stack.elementAt(i - 1)][stack.elementAt(i)];
                             info.hwanseungs += 1;
-
+                            //info.directions.push("환승");
                             continue;
                         }else{
-                            //route1[i] = returnStation(stack.elementAt(i)); //수정
-                            //System.out.print(route1[i] + " "); //수정
-                            //totalTime += maps[stack.elementAt(i - 1)][stack.elementAt(i)];
-                            //totalStation += 1;
-
                             info.stations.push(returnStation(stack.elementAt(i)));
                             info.hoseons.push(returnHoseon(stack.elementAt(i)));
                             info.totalTime += maps[stack.elementAt(i - 1)][stack.elementAt(i)];
                             info.totalStation += 1;
+                            if (stack.elementAt(i) > stack.elementAt(i - 1)) {
+                                info.directions.push("down");
+                            }else{
+                                info.directions.push("up");
+                            }
                         }
                     }else{
-                        //route1[i] = returnStation(stack.elementAt(i)); //수정
-                        //System.out.print(route1[i] + " "); //수정
-
                         info.stations.push(returnStation(stack.elementAt(i)));
                     }
                     num++;
@@ -933,12 +925,13 @@ public class DFSActivity extends AppCompatActivity {
 class structInfo{
     Stack<String> stations = new Stack();
     Stack<String> hoseons = new Stack<>();
+    Stack<String> directions = new Stack<>();
     int totalTime = 0;
     int totalStation = 0;
     int hwanseungs = 0;
 
     public void print() {
-        System.out.println("\n"+stations.toString()+"\n"+hoseons.toString()+"\n^소요시간: "+totalTime+" & 총 역 개수: "+totalStation+" & 환승 횟수: "+hwanseungs);
+        System.out.println("\n"+stations.toString()+"\n"+hoseons.toString()+"\n"+directions.toString()+"\n^소요시간: "+totalTime+" & 총 역 개수: "+totalStation+" & 환승 횟수: "+hwanseungs);
     }
 }
 
