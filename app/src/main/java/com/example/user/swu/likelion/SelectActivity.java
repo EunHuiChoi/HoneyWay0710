@@ -131,7 +131,7 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select);
 
-        Log.d(TAG,"Hour ==> "+formatHour+" & Minute ==> "+formatMinute);
+        //Log.d(TAG,"Hour ==> "+formatHour+" & Minute ==> "+formatMinute);
 
         Intent intent = getIntent();
         DepartArrive = intent.getStringArrayListExtra("DepartArrive");
@@ -2408,6 +2408,21 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
                 Intent intent = new Intent(getApplicationContext(), StationMapAActivity.class);
                 intent.putStringArrayListExtra("DepartArrive", DepartArrive);
                 //i.putExtra("DEPART", four[depart]);
+                startActivity(intent);
+            }
+        });
+
+        /////////////////////////태영 DFS테스트
+        Button btnDFS = findViewById(R.id.btn_next2);
+        btnDFS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),DFSActivity.class);
+                intent.putExtra("HOUR", formatHour);
+                intent.putExtra("MINUTE", formatMinute);
+                intent.putExtra("DAY", day);
+                intent.putExtra("DEPART", "");
+                intent.putExtra("ARRIVE","");
                 startActivity(intent);
             }
         });
