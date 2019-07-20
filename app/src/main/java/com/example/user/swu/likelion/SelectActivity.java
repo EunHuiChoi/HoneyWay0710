@@ -2238,7 +2238,7 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
                     //1시, 2시, 3시는 어떤 경우에도 운행시간이 아니기 때문에 DB를 거칠 필요 없음
                     congestion = "운행시간아님";
 
-                    final Intent intent = new Intent(getApplicationContext(), CongestionActivity.class);
+                    final Intent intent = new Intent(getApplicationContext(), FiveRoadActivity.class);
                     intent.putExtra("FORMATTIME", formatTime);
                     intent.putExtra("DEPART", DepartArrive.get(0));
                     intent.putExtra("ARRIVE", DepartArrive.get(1));
@@ -2360,7 +2360,7 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
                                     }
 
 
-                                    final Intent intent = new Intent(getApplicationContext(), CongestionActivity.class);
+                                    final Intent intent = new Intent(getApplicationContext(), FiveRoadActivity.class);
                                     intent.putExtra("FORMATTIME", formatTime);
                                     intent.putExtra("DEPART", four[depart]);
                                     intent.putExtra("ARRIVE", four[arrive]);
