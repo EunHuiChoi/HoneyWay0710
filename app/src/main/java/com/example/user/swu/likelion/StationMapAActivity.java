@@ -49,6 +49,7 @@ public class StationMapAActivity extends AppCompatActivity {
         //노선도 확대 축소
         imgMap = findViewById(R.id.imgMap);
         mAttacher = new PhotoViewAttacher(imgMap);
+        mAttacher.setScaleType(ImageView.ScaleType.FIT_XY); //화면에 꽉차는 옵션
 
     }// end OnCreate();
 
@@ -60,4 +61,6 @@ public class StationMapAActivity extends AppCompatActivity {
         }
 
     } // end onClick();
+
+
 }
