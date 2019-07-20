@@ -18,8 +18,10 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Serializable;
+import java.sql.Struct;
 
-public class FiveRoadActivity extends AppCompatActivity {
+public class FiveRoadActivity extends AppCompatActivity implements Serializable {
 
     private TabLayout tabLayout;
     private ViewPager pager;
@@ -32,5 +34,17 @@ public class FiveRoadActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tabLayout);
         pager = findViewById(R.id.pager);
 
+        structInfo[] infos;
+
+        Intent intent = getIntent();
+        Object[] objects = (Object[])intent.getSerializableExtra("INFOS");
+
+        infos = new structInfo[objects.length];
+        for(int i=0;i<objects.length;i++){
+            infos[i] = (structInfo)objects[(objects.length-1-i)];
+        }
+        for(int i=0;i<infos.length;i++){
+            infos[i].print();
+        }
     }// endOnCreate
 }

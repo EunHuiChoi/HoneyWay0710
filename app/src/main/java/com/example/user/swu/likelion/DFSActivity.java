@@ -18,6 +18,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Serializable;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -26,7 +27,7 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Stack;
 
-public class DFSActivity extends AppCompatActivity {
+public class DFSActivity extends AppCompatActivity{
 
     String TAG = this.getClass().getSimpleName();
 
@@ -102,7 +103,7 @@ public class DFSActivity extends AppCompatActivity {
     int limit = 0;
     int[] hwanseungs = new int[61];
 
-    structInfo[] infos = new structInfo[5];
+    //structInfo[] infos = new structInfo[5];
 
     static int topN = 5;
 
@@ -635,6 +636,7 @@ public class DFSActivity extends AppCompatActivity {
         structInfo[] infos = new structInfo[5];
 
         int j = queue.size();
+        Intent intent2 = new Intent(this.getApplicationContext(),FiveRoadActivity.class);
         for(int z=0; z<j; z++){
             structInfo imsi = queue.poll();
             imsi.congestions = new String[imsi.hoseons.length];
@@ -653,15 +655,17 @@ public class DFSActivity extends AppCompatActivity {
                 cursor.close();
             }
             infos[z] = imsi;
+            //intent2.putExtra("INFO"+z,imsi);
             //Log.d(TAG,"길이 => "+Congestions.length);
             //imsi.print();
+            //intent2.putExtra("INFO"+z,imsi);
         }
-        Intent intent2 = new Intent(this.getApplicationContext(),FiveRoadActivity.class);
-        intent.putExtra("INFOS",infos);
         //startActivity(intent);
 
         //Log.d(TAG,"rowSize => "+rowSize+" & result => "+result)
         congestionDB.close();
+        intent2.putExtra("INFOS",infos);
+        startActivity(intent2);
     }
 
     public String returnTime(int hourInt, int minuteInt){
@@ -677,7 +681,7 @@ public class DFSActivity extends AppCompatActivity {
                 }
             }
         }
-        Log.d(TAG,"realTIme ==> " +time);
+        //Log.d(TAG,"realTIme ==> " +time);
         return time;
     }
 
@@ -758,7 +762,7 @@ public class DFSActivity extends AppCompatActivity {
                 stationNum = i;
             }
         }
-        Log.d(TAG,"역번호==> "+stationNum);
+        //Log.d(TAG,"역번호==> "+stationNum);
         return stationNum;
     }
 
@@ -1034,7 +1038,7 @@ public class DFSActivity extends AppCompatActivity {
     }
 
 }
-class structInfo{
+class structInfo implements Serializable {
     String[] stations;
     String[] hoseons;
     String[] directions;
