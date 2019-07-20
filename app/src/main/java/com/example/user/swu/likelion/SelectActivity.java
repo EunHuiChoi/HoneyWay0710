@@ -2004,6 +2004,7 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
 
                 //Adapter를 ListView에 부착시킨다.
                 lstStation1.setAdapter(stationAdapter);
+
             }
         });
 
