@@ -644,7 +644,6 @@ public class DFSActivity extends AppCompatActivity{
 
         int j = queue.size();
         Intent intent2 = new Intent(this.getApplicationContext(),FiveRoadActivity.class);
-        Log.d(TAG,"day => "+day+" & hour => "+hour+" & minute => "+minute);
         for(int z=0; z<j; z++){
             int sum = 0;
             structInfo imsi = queue.poll();
@@ -688,6 +687,12 @@ public class DFSActivity extends AppCompatActivity{
         congestionDB.close();
         intent2.putExtra("INFOS",infos);
 
+        String formatTime = hour+"시 "+minute+"분";
+        intent2.putExtra("FORMATTIME", formatTime);
+        intent2.putExtra("DAY", day);
+        intent2.putExtra("DEPART", depart);
+        intent2.putExtra("ARRIVE", arrive);
+        //startActivity(intent);
         startActivity(intent2);
     }
 

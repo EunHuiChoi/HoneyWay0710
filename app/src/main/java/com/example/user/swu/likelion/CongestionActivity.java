@@ -2,6 +2,7 @@
 package com.example.user.swu.likelion;
 
 import android.content.Intent;
+import android.icu.text.IDNA;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -48,16 +49,37 @@ public class CongestionActivity extends AppCompatActivity {
         //앞 화면에서 받은 intent
         Intent intent = getIntent();
         //final String a = intent.getStringExtra("stationBean");
-        final int arrive_line_num = intent.getIntExtra("arrive_line_num",0); //도착역 호선 세영
+        //final int arrive_line_num = intent.getIntExtra("arrive_line_num",0); //도착역 호선 세영
         final String formatTime = intent.getStringExtra("FORMATTIME"); //출발시간
         final String depart = intent.getStringExtra("DEPART"); //출발역
         final String arrive = intent.getStringExtra("ARRIVE"); //도착역
         congestion = intent.getStringExtra("CONGESTION"); //출발역 혼잡도
-        timeResult = intent.getIntExtra("timeResult",0); //소요시간
+        //timeResult = intent.getIntExtra("timeResult",0); //소요시간
+
+
+
 
         datas  = intent.getStringArrayListExtra("DATA"); // 출발역~도착역 혼잡도
         //Log.d(TAG,"datas===>"+datas.toString());
         stations  = intent.getStringArrayListExtra("STATION"); // 출발역~도착역 역이름
+
+
+        //5개 배열
+        structInfo[] infos;
+
+        intent = getIntent();
+        Object[] objects = (Object[])intent.getSerializableExtra("INFOS");
+
+        infos = new structInfo[objects.length];
+        for(int i=0;i<objects.length;i++){
+            infos[i] = (structInfo)objects[(objects.length-1-i)];
+        }
+
+        for(int i=0;i<infos.length;i++){
+            infos[i].print();
+        }
+
+        timeResult = infos[0].totalTime;
 
         //출발시간 화면에 띄우기
         TextView depart_time = (TextView)findViewById(R.id.depart_time);
@@ -79,29 +101,29 @@ public class CongestionActivity extends AppCompatActivity {
         //txtvCongest = findViewById(R.id.txtvCongest);
         //txtvCongest.setText(congestion);
 
+        Log.d("Wog", "첫번째 혼잡도" + infos[0].congestions[0]);
 
 
-
-
-        if ("매우여유".equals(congestion)){
+        if ("매우여유".equals(infos[0].congestions[0])){
             honjobdo.setImageResource(R.drawable.nulnul);
             layout.setBackgroundColor(getResources().getColor(R.color.color_nulnul));
-        }else if ("여유".equals(congestion)){
+        }else if ("여유".equals(infos[0].congestions[0])){
             honjobdo.setImageResource(R.drawable.yuyou);
             layout.setBackgroundColor(getResources().getColor(R.color.color_yuyou));
-        }else if ("보통".equals(congestion)){
+        }else if ("보통".equals(infos[0].congestions[0])){
             honjobdo.setImageResource(R.drawable.botong);
             layout.setBackgroundColor(getResources().getColor(R.color.color_botong));
-        }else if ("혼잡".equals(congestion)){
+        }else if ("혼잡".equals(infos[0].congestions[0])){
             honjobdo.setImageResource(R.drawable.honjob);
             layout.setBackgroundColor(getResources().getColor(R.color.color_honjob));
-        }else if ("매우혼잡".equals(congestion)){
+        }else if ("매우혼잡".equals(infos[0].congestions[0])){
             honjobdo.setImageResource(R.drawable.bbakbbak);
             layout.setBackgroundColor(getResources().getColor(R.color.color_bbackbback));
         }else {
             end_time.setVisibility(View.INVISIBLE);
             honjobdo.setImageResource(R.drawable.nosubway);//'운행시간 아님'에 대한 이미지 코드 넣기
         }
+
 
 
 
@@ -115,8 +137,9 @@ public class CongestionActivity extends AppCompatActivity {
         passing_station.clear();
 
         //출발역과 도착역 사이의 역들, 혼잡도 passing_station에 넣기
-        for (int i = 0; i< datas.size() ; i++) {
-            passing_station.add(new Detail_Info(datas.get(i), stations.get(i)));
+        for (int i = 0; i< infos[0].congestions.length ; i++) {
+            //passing_station.add(new Detail_Info(infos[0].stations[0], infos[0].congestions[i]));
+            passing_station.add(new Detail_Info(infos[0].congestions[i],infos[0].stations[i]));
         }
 
         //출발역과 도착역 사이의 역들 출력하기
