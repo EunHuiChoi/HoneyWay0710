@@ -266,12 +266,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        android:weightSum="1">
 
         <Button
             android:id="@+id/btn_next"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="선택 완료" />
+        <Button
+            android:id="@+id/btn_next2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
             android:text="선택 완료" />
     </LinearLayout>
 

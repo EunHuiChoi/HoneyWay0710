@@ -7,8 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
+
+import uk.co.senab.photoview.PhotoViewAttacher;
 
 public class StationMapDActivity extends AppCompatActivity {
 
@@ -17,6 +20,10 @@ public class StationMapDActivity extends AppCompatActivity {
     private FloatingActionButton btnfabL;
 
     public static ArrayList<String> DepartArrive = new ArrayList<>();
+
+    //노선도 이미지
+    ImageView imgMap;
+    PhotoViewAttacher mAttacher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +47,12 @@ public class StationMapDActivity extends AppCompatActivity {
                 startActivity(intent); //출발역 설정 화면으로 돌아가기
             }
         });
+
+        //노선도 확대 축소
+        imgMap = findViewById(R.id.imgMap);
+        mAttacher = new PhotoViewAttacher(imgMap);
+
+        mAttacher.setScaleType(ImageView.ScaleType.FIT_XY); //화면에 꽉차는 옵션
     }// end OnCreate();
 
     public void onClick(View v) {

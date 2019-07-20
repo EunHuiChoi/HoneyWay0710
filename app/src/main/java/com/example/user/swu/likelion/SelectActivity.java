@@ -65,7 +65,6 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
 
     //[태영 DB]
     String TAG = this.getClass().getSimpleName();
-    FirebaseDatabase database;
 
     String[] four = {"당고개","상계","노원","창동","쌍문","수유","미아","미아사거리","길음",
             "성신여대입구","한성대입구", "혜화","동대문","동대문역사문화공원","충무로","명동",
@@ -135,7 +134,7 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select);
 
-        Log.d(TAG,"Hour ==> "+formatHour+" & Minute ==> "+formatMinute);
+        //Log.d(TAG,"Hour ==> "+formatHour+" & Minute ==> "+formatMinute);
 
         Intent intent = getIntent();
         DepartArrive = intent.getStringArrayListExtra("DepartArrive");
@@ -2235,9 +2234,6 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
         //현재시간으로 DB에 검색
         time  = "time" + formatHour ;
 
-
-        database = FirebaseDatabase.getInstance();
-
         dialog = new ProgressDialog(this);
         dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         dialog.setMessage("데이터를 불러오고 있습니다");
@@ -2248,22 +2244,29 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
             public void onClick(View v) {
                 Log.d(TAG,"arrive_line_num===>"+arrive_line_num);
                 congestion = null;
-
+                Log.d("tag", formatTime);
                 if (time.equals("time01") || time.equals("time02") || time.equals("time03") || time.equals("time04")) {
                     //1시, 2시, 3시는 어떤 경우에도 운행시간이 아니기 때문에 DB를 거칠 필요 없음
                     congestion = "운행시간아님";
 
-                    final Intent intent = new Intent(getApplicationContext(), CongestionActivity.class);
+                    final Intent intent = new Intent(getApplicationContext(), FiveRoadActivity.class);
                     intent.putExtra("FORMATTIME", formatTime);
+                    intent.putExtra("DAY", day);
                     intent.putExtra("DEPART", DepartArrive.get(0));
                     intent.putExtra("ARRIVE", DepartArrive.get(1));
                     intent.putExtra("CONGESTION", congestion);
                     startActivity(intent);
                 } else {
-
                     if (DepartArrive.size() == 1) {
                         Toast.makeText(SelectActivity.this, "도착역을 설정하세요", Toast.LENGTH_SHORT).show();
                     } else {
+                        final Intent intent = new Intent(getApplicationContext(), FiveRoadActivity.class);
+                        intent.putExtra("FORMATTIME", formatTime);
+                        intent.putExtra("DAY", day);
+                        intent.putExtra("DEPART", DepartArrive.get(0));
+                        intent.putExtra("ARRIVE", DepartArrive.get(1));
+                        intent.putExtra("CONGESTION", congestion);
+                        startActivity(intent);
                         //DepartArrive.add("동대문역사문화공원"); //임의로 넣음(추후 수정)
                         //DepartArrive.add("사당"); //임의로 넣음 (추후 수정)
 
@@ -2426,6 +2429,21 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
                 Intent intent = new Intent(getApplicationContext(), StationMapAActivity.class);
                 intent.putStringArrayListExtra("DepartArrive", DepartArrive);
                 //i.putExtra("DEPART", four[depart]);
+                startActivity(intent);
+            }
+        });
+
+        /////////////////////////태영 DFS테스트
+        Button btnDFS = findViewById(R.id.btn_next2);
+        btnDFS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),DFSActivity.class);
+                intent.putExtra("HOUR", formatHour);
+                intent.putExtra("MINUTE", formatMinute);
+                intent.putExtra("DAY", day);
+                intent.putExtra("DEPART", "");
+                intent.putExtra("ARRIVE","");
                 startActivity(intent);
             }
         });

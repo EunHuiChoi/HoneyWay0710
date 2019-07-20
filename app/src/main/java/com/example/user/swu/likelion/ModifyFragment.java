@@ -64,13 +64,9 @@ public class ModifyFragment extends DialogFragment{
         datePicker.setDisplayedValues(dates);
         datePicker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
 
-        if(timePicker.getHour()<10){
-            hour = "0"+timePicker.getHour();
-        }else{
-            hour = String.valueOf(timePicker.getHour());
-        }
-        minute = String.valueOf(timePicker.getMinute());
 
+        hour = String.valueOf(timePicker.getHour());
+        minute = String.valueOf(timePicker.getMinute());
         day = dates[datePicker.getValue()];
 
         timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
