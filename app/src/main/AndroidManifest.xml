@@ -13,7 +13,8 @@
         android:roundIcon="@drawable/logo_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FiveRoadActivity"></activity>
+        <activity android:name=".DFSActivity"></activity>
+        <activity android:name=".FiveRoadActivity" />
         <activity android:name=".StationMapAActivity" />
 
         <meta-data
