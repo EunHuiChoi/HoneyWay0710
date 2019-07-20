@@ -578,19 +578,16 @@ public class DFSActivity extends AppCompatActivity {
     }
 
     public String returnTime(int hourInt, int minuteInt){
-        String time = "";
-
+        String time = "운행 시간 아님";
         for(int i=0;i<index2Time.length;i++){
-            int _hour = Integer.parseInt(index2Time[i].substring(4,5));
-            Log.d(TAG,"_hour => "+_hour);
+            int _hour = Integer.parseInt(index2Time[i].substring(4,6));
+            Log.d(TAG,"_hour => "+_hour+"\n hourInt => "+hourInt+"\n minuteInt => "+minuteInt);
             if(_hour == hourInt){
                 if(minuteInt<=30){
                     time =  index2Time[i];
                 }else{
                     time = index2Time[i+1];
                 }
-            }else{
-                time = "운행 시간 아님";
             }
         }
         Log.d(TAG,"realTIme ==> " +time);

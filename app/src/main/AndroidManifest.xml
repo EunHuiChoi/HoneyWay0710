@@ -12,7 +12,8 @@
         android:label="Honey Way"
         android:roundIcon="@drawable/logo_icon"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:largeHeap="true">
         <activity android:name=".DFSActivity"></activity>
         <activity android:name=".FiveRoadActivity" />
         <activity android:name=".StationMapAActivity" />
