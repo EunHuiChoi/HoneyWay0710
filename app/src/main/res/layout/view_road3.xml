@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:background="#FF5555"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="8">
+
+            <ImageView
+                android:id="@+id/bar01"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-20dp"
+                android:layout_marginTop="30dp"
+                android:layout_toRightOf="@+id/circle01"
+                app:srcCompat="@drawable/rectangle90" />
+            <ImageView
+                android:id="@+id/bar02"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-20dp"
+                android:layout_marginTop="30dp"
+                android:layout_toRightOf="@+id/circle02"
+                app:srcCompat="@drawable/rectangle90" />
+            <ImageView
+                android:id="@+id/bar3"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-20dp"
+                android:layout_marginTop="30dp"
+                android:layout_toRightOf="@+id/circle03"
+                app:srcCompat="@drawable/rectangle90" />
+
+            <ImageView
+                android:id="@+id/circle01"
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                app:srcCompat="@drawable/circle"
+                />
+
+            <ImageView
+                android:id="@+id/circle02"
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-20dp"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@+id/bar01"
+                app:srcCompat="@drawable/circle" />
+
+            <ImageView
+                android:id="@+id/circle03"
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-20dp"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@+id/bar02"
+                app:srcCompat="@drawable/circle" />
+
+            <ImageView
+                android:id="@+id/circle4"
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-20dp"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@+id/bar3"
+                app:srcCompat="@drawable/circle" />
+
+            <TextView
+                android:id="@+id/txtStation1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="39dp"
+                android:text="화랑대" />
+
+            <TextView
+                android:id="@+id/txtStation2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-17dp"
+                android:layout_marginTop="39dp"
+                android:layout_toRightOf="@id/bar01"
+                android:text="태릉입구" />
+
+            <TextView
+                android:id="@+id/txtStation3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-6dp"
+                android:layout_marginTop="39dp"
+                android:layout_toRightOf="@id/bar02"
+                android:text="석계" />
+
+            <TextView
+                android:id="@+id/txtStation4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-10dp"
+                android:layout_marginTop="39dp"
+                android:layout_toRightOf="@id/bar3"
+                android:text="돌곶이" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/txtTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="20분"
+            android:textColor="@color/white"
+            android:textSize="30dp" />
+    </LinearLayout>
+</LinearLayout>

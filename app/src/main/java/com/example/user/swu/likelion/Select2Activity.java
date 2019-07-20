@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 
 import java.util.ArrayList;
@@ -2108,6 +2109,7 @@ public class Select2Activity extends AppCompatActivity {
 
         //예진 리스트 끝
 
+
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -2121,6 +2123,7 @@ public class Select2Activity extends AppCompatActivity {
                 }
             }
         });
+
         // 예진 플로팅버튼
         btnfabS = findViewById(R.id.btnfabS);
 
@@ -2133,6 +2136,21 @@ public class Select2Activity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+//        lstStation1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                //값 넘겨주기
+//                if (DepartArrive.size() == 0) {
+//                    Toast.makeText(Select2Activity.this, "출발역을 설정하세요", Toast.LENGTH_SHORT).show();
+//                }else {
+//                    Intent intent = new Intent(getApplicationContext(), SelectActivity.class);
+//                    intent.putStringArrayListExtra("DepartArrive", DepartArrive);
+//
+//                    startActivity(intent);
+//                }
+//            }
+//        });
 
     }//end OnCreate();
 

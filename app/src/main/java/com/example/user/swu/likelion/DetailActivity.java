@@ -46,7 +46,7 @@ public class DetailActivity extends AppCompatActivity {
 
         //출발역과 도착역 사이의 역들, 혼잡도 passing_station에 넣기
         for (int i = 0; i< datas.size() ; i++) {
-            passing_station.add(new Detail_Info(datas.get(i), stations.get(i)));
+                passing_station.add(new Detail_Info(  "a","a","a"));
         }
 
 
