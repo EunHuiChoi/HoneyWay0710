@@ -137,9 +137,19 @@ public class DFSActivity extends AppCompatActivity{
     String depart;
     String arrive;
 
+    /////////////////////////////혼잡도 평균
+    String[] avgCongest = {"매우여유", "여유", "보통", "혼잡", "매우혼잡"};
+    Map<String, Integer> CongestMap = new HashMap<String, Integer>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        CongestMap.put("매우여유",0);
+        CongestMap.put("여유",2);
+        CongestMap.put("보통",4);
+        CongestMap.put("혼잡",8);
+        CongestMap.put("매우혼잡",16);
 
         Intent intent = getIntent();
         hour = intent.getStringExtra("HOUR");
@@ -634,7 +644,9 @@ public class DFSActivity extends AppCompatActivity{
 
         int j = queue.size();
         Intent intent2 = new Intent(this.getApplicationContext(),FiveRoadActivity.class);
+        Log.d(TAG,"day => "+day+" & hour => "+hour+" & minute => "+minute);
         for(int z=0; z<j; z++){
+            int sum = 0;
             structInfo imsi = queue.poll();
             imsi.congestions = new String[imsi.hoseons.length];
             //imsi.print();
@@ -649,6 +661,7 @@ public class DFSActivity extends AppCompatActivity{
                 }catch(Exception e){
                     imsi.congestions[y] = imsi.congestions[y-1];
                 }
+                sum += CongestMap.get(imsi.congestions[y]);
                 cursor.close();
             }
             infos[z] = imsi;
@@ -656,12 +669,25 @@ public class DFSActivity extends AppCompatActivity{
             //Log.d(TAG,"길이 => "+Congestions.length);
             //imsi.print();
             //intent2.putExtra("INFO"+z,imsi);
+            int avg = sum/imsi.congestions.length;
+            if(avg<1){
+                Log.d(TAG,"매우여유"+avg);
+            }else if(avg<3){
+                Log.d(TAG,"여유"+avg);
+            }else if(avg<5){
+                Log.d(TAG,"보통"+avg);
+            }else if(avg<9){
+                Log.d(TAG,"혼잡"+avg);
+            }else{
+                Log.d(TAG,"매우 혼잡"+avg);
+            }
         }
         //startActivity(intent);
 
         //Log.d(TAG,"rowSize => "+rowSize+" & result => "+result)
         congestionDB.close();
         intent2.putExtra("INFOS",infos);
+
         startActivity(intent2);
     }
 

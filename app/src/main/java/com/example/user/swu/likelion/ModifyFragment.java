@@ -26,11 +26,11 @@ public class ModifyFragment extends DialogFragment{
     String day;
 
 
-    public interface ModifytListener{
-        void onFInishModify(String hour, String minute, String day);
+    public interface ModifyListener{
+        void onFinishModify(String hour, String minute, String day);
     }
 
-    private ModifytListener listener;
+    private ModifyListener listener;
 
     Button btnOK;
     Button btnNO;
@@ -41,7 +41,7 @@ public class ModifyFragment extends DialogFragment{
         // Verify that the host activity implements the callback interface
         try {
             // Instantiate the EditNameDialogListener so we can send events to the host
-            listener = (ModifytListener) context;
+            listener = (ModifyListener) context;
         } catch (ClassCastException e) {
             // The activity doesn't implement the interface, throw exception
             throw new ClassCastException(context.toString()
@@ -65,16 +65,16 @@ public class ModifyFragment extends DialogFragment{
         datePicker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
 
 
-        //hour = String.valueOf(timePicker.getHour());
-        //minute = String.valueOf(timePicker.getMinute());
-        //day = dates[datePicker.getValue()];
+        hour = String.valueOf(timePicker.getCurrentHour());
+        minute = String.valueOf(timePicker.getCurrentMinute());
+        day = dates[datePicker.getValue()];
 
         timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
             @Override
             public void onTimeChanged(TimePicker timePicker, int h, int m) {
                 hour=String.valueOf(h);
                 minute = String.valueOf(m);
-                //Toast.makeText(getContext(), "h=>"+hour+", m=>"+minute, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "h=>"+hour+", m=>"+minute, Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -94,7 +94,7 @@ public class ModifyFragment extends DialogFragment{
             @Override
             public void onClick(View v) {
                 Log.d(TAG,"hour=======>"+hour+", minute========>"+minute+", listener=====>"+listener.toString());
-                listener.onFInishModify(hour, minute, day);
+                listener.onFinishModify(hour, minute, day);
                 ModifyFragment.this.dismiss();
             }
         });
