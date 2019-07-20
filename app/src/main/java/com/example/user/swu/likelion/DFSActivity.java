@@ -148,14 +148,11 @@ public class DFSActivity extends AppCompatActivity{
         depart = intent.getStringExtra("DEPART");
         arrive =intent.getStringExtra("ARRIVE");
 
-        hour = "20";
-        minute="30";
-
         hourInt = Integer.parseInt(hour);
         minuteInt = Integer.parseInt(minute);
 
-        String realTime = returnTime(hourInt, minuteInt);
-        realTime = "time2030";
+        //String realTime = returnTime(hourInt, minuteInt);
+        //realTime = "time2030";
 
         //String fullTime = hour+minute;
 
@@ -644,13 +641,13 @@ public class DFSActivity extends AppCompatActivity{
             int x = imsi.hoseons.length;
             for(int y=0; y<x;y++) {
                 Cursor cursor;
-                cursor = congestionDB.rawQuery("SELECT " + returnTime(imsi.departTimes[y][0],imsi.departTimes[y][1]) + " FROM " + "sat" + imsi.directions[y] + " where stationName='" + imsi.stations[y] + "' AND line=" + imsi.hoseons[y], null);
+                cursor = congestionDB.rawQuery("SELECT " + returnTime(imsi.departTimes[y][0],imsi.departTimes[y][1]) + " FROM " +day+imsi.directions[y] + " where stationName='" + imsi.stations[y] + "' AND line=" + imsi.hoseons[y], null);
                 rowSize = cursor.getCount();
                 cursor.moveToNext();
                 try {
                     imsi.congestions[y] = cursor.getString(0);
                 }catch(Exception e){
-                    imsi.congestions[y] = "없음";
+                    imsi.congestions[y] = imsi.congestions[y-1];
                 }
                 cursor.close();
             }

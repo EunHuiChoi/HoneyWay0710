@@ -53,6 +53,9 @@ public class MainActivity extends AppCompatActivity{
     // nowDate 변수에 값을 저장한다.
     String formatDate = sdfNow.format(date);
 
+    SimpleDateFormat sdfTime = new SimpleDateFormat("HH:mm");
+    String formatTime = sdfTime.format(date);
+
     TextView time;
     //Button Refresh;
     Button btn_0, btn_1,btn_2, btn_3, btn_4, btn_5, btn_6, btn_7, btn_8, btn_9;
@@ -77,6 +80,10 @@ public class MainActivity extends AppCompatActivity{
     String[] arrayStationEngName;
 
     int rowSize;
+
+    ///////////////////////////////사용자 피드백
+    String departStation;
+    ImageButton btnFeedback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -273,7 +280,21 @@ public class MainActivity extends AppCompatActivity{
                 time.setText(formatDate);
             }
         });*/
+
+        btnFeedback = findViewById(R.id.settingBtn);
+        btnFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),PopUpActivity.class);
+                intent.putExtra("DEPART",departStation);
+                intent.putExtra("TIME",formatTime);
+                startActivity(intent);
+            }
+        });
+
     }
+
+
 
     //GPS 관련코드
     final LocationListener gpsLocationListener = new LocationListener() {
@@ -332,6 +353,8 @@ public class MainActivity extends AppCompatActivity{
             }
 
             textview4.setText(closest);
+            departStation = closest;
+
             textView5.setText(closest2);
 
 

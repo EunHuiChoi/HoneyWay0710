@@ -182,6 +182,7 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
 
         //객체 정보(1호선)
         //객체 정보(1호선)
+        //객체 정보(1호선)
         StationBean s1_1 = new StationBean();
         s1_1.setImgSeoul(R.drawable.img_seoul);
         s1_1.setTxtStationName("서울역");
@@ -238,7 +239,6 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
         s1_10.setTxtStationName("동묘앞");
         s1_10.setImgStationNum(R.drawable.img_station1);
         s1_10.setImgStationNum2(R.drawable.img_station6);
-
 
         //객체 정보(2호선)
         StationBean s2_1 = new StationBean();
@@ -1115,6 +1115,7 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
         s5_51.setTxtStationName("마천");
         s5_51.setImgStationNum(R.drawable.img_station5);
 
+        //6호선 삼각지대(역촌~구산) 데이터정보가 상선에서는 없고 하선만 있음
         //객체 정보(6호선)
         StationBean s6_1 = new StationBean();
         s6_1.setImgSeoul(R.drawable.img_seoul);

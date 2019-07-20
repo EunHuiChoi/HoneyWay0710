@@ -48,8 +48,8 @@ public class StationAdapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if(convertView != null)
-            return convertView;
+//        if(convertView != null)
+//            return convertView;
 
         //인플레이팅 하는 작업
        // mDepartArrive.add("동대문역사문화공원");
