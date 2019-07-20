@@ -54,7 +54,33 @@ public class Detail_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
         myViewHolder.viewText.setText(passing_station.get(position).station_name);
 
-        myViewHolder.viewImage.setBackgroundColor(Color.parseColor("#00aaff"));
+
+        //myViewHolder.viewImage.setBackgroundColor(Color.parseColor("#00aaff"));
+        if (passing_station.get(position).hoseons.equals("1")) {
+            myViewHolder.viewImage.setBackgroundResource(R.color.line1);
+        }else if (passing_station.get(position).hoseons.equals("2")) {
+            myViewHolder.viewImage.setBackgroundResource(R.color.line2);
+        }else if (passing_station.get(position).hoseons.equals("3")) {
+            myViewHolder.viewImage.setBackgroundResource(R.color.line3);
+        }else if (passing_station.get(position).hoseons.equals("4")) {
+            myViewHolder.viewImage.setBackgroundResource(R.color.line4);
+        }else if (passing_station.get(position).hoseons.equals("5")) {
+            myViewHolder.viewImage.setBackgroundResource(R.color.line5);
+        }else if (passing_station.get(position).hoseons.equals("6")) {
+            myViewHolder.viewImage.setBackgroundResource(R.color.line6);
+        }else if (passing_station.get(position).hoseons.equals("7")) {
+            myViewHolder.viewImage.setBackgroundResource(R.color.line7);
+        }else if (passing_station.get(position).hoseons.equals("8")) {
+            myViewHolder.viewImage.setBackgroundResource(R.color.line8);
+        }else if (passing_station.get(position).hoseons.equals("9")) {
+            myViewHolder.viewImage.setBackgroundResource(R.color.line9);
+        }
+
+
+
+
+
+
         myViewHolder.viewImage2.setBackgroundColor(Color.parseColor("#00aaff"));
 
         if (passing_station.get(position).drawable_Id.equals("매우 혼잡")) {
