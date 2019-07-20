@@ -1,6 +1,7 @@
 package com.example.user.swu.likelion.adapter;
 
 
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -23,7 +24,9 @@ public class Detail_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
-        public ImageView viewImage;
+        //public ImageView viewImage;
+        public View viewImage;
+        public View viewImage2;
         public TextView viewText;
 
         View view;//클릭때문에 추가
@@ -31,7 +34,9 @@ public class Detail_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         public MyViewHolder(View view){
             super(view);
             this.view = view; // 추가
-            viewImage = (ImageView) view.findViewById(R.id.view_image);
+            //viewImage = (ImageView) view.findViewById(R.id.view_image);
+            viewImage = (View) view.findViewById(R.id.view_image);
+            viewImage2 = (View) view.findViewById(R.id.view_image2);
             viewText = (TextView) view.findViewById(R.id.view_text);
         }
     }
@@ -49,6 +54,21 @@ public class Detail_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
         myViewHolder.viewText.setText(passing_station.get(position).station_name);
 
+        myViewHolder.viewImage.setBackgroundColor(Color.parseColor("#00aaff"));
+        myViewHolder.viewImage2.setBackgroundColor(Color.parseColor("#00aaff"));
+
+        if (passing_station.get(position).drawable_Id.equals("매우 혼잡")) {
+            myViewHolder.viewImage2.setBackgroundResource(R.color.color_bbackbback);
+        }else if (passing_station.get(position).drawable_Id.equals("혼잡")) {
+            myViewHolder.viewImage2.setBackgroundResource(R.color.color_honjob);
+        }else if (passing_station.get(position).drawable_Id.equals("보통")){
+            myViewHolder.viewImage2.setBackgroundResource(R.color.color_botong);
+        }else if (passing_station.get(position).drawable_Id.equals("여유")){
+            myViewHolder.viewImage2.setBackgroundResource(R.color.color_yuyou);
+        }else{
+            myViewHolder.viewImage2.setBackgroundResource(R.color.color_nulnul);
+        }
+        /*
         if (passing_station.get(position).drawable_Id.equals("매우 혼잡")) {
             myViewHolder.viewImage.setImageResource(R.drawable.red);
         }else if (passing_station.get(position).drawable_Id.equals("혼잡")) {
@@ -60,7 +80,7 @@ public class Detail_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         }else{
             myViewHolder.viewImage.setImageResource(R.drawable.bage);
         }
-
+*/
         final int Position = position;
     }
 

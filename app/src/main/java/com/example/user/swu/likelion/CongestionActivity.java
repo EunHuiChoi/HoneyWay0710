@@ -4,11 +4,15 @@ package com.example.user.swu.likelion;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.example.user.swu.likelion.adapter.Detail_Adapter;
 
 import java.util.ArrayList;
 
@@ -23,8 +27,12 @@ public class CongestionActivity extends AppCompatActivity {
     int timeResult;
     ImageView honjobdo;
 
+    RecyclerView mRecyclerView; //세부혼잡도
+    RecyclerView.LayoutManager mLayoutManager; //세부혼잡도
+
     private ArrayList<String> datas = new ArrayList<>();
     private ArrayList<String> stations = new ArrayList<>();
+    private ArrayList<Detail_Info> passing_station = new ArrayList<>(); //세부혼잡도 //넘기는 것
 
 
     @Override
@@ -70,16 +78,7 @@ public class CongestionActivity extends AppCompatActivity {
         //txtvCongest.setText(congestion);
 
 
-        btnSend = findViewById(R.id.btnSend);
-        btnSend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),DetailActivity.class);
-                intent.putStringArrayListExtra("DATA",datas);
-                intent.putStringArrayListExtra("STATION",stations);
-                startActivity(intent);
-            }
-        });
+
 
 
         if ("매우여유".equals(congestion)){
@@ -99,9 +98,27 @@ public class CongestionActivity extends AppCompatActivity {
             layout.setBackgroundColor(getResources().getColor(R.color.color_bbackbback));
         }else {
             end_time.setVisibility(View.INVISIBLE);
-            btnSend.setVisibility(View.INVISIBLE);
             honjobdo.setImageResource(R.drawable.nosubway);//'운행시간 아님'에 대한 이미지 코드 넣기
         }
 
+
+
+        //세부 혼잡도
+        mRecyclerView = (RecyclerView)findViewById(R.id.recyclerview);
+        mRecyclerView.setHasFixedSize(true);
+
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        passing_station.clear();
+
+        //출발역과 도착역 사이의 역들, 혼잡도 passing_station에 넣기
+        for (int i = 0; i< datas.size() ; i++) {
+            passing_station.add(new Detail_Info(datas.get(i), stations.get(i)));
+        }
+
+        //출발역과 도착역 사이의 역들 출력하기
+        Detail_Adapter myAdapter = new Detail_Adapter(passing_station);
+        mRecyclerView.setAdapter(myAdapter);
     }
 }

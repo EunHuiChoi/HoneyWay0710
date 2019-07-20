@@ -138,6 +138,8 @@ public class MainActivity extends AppCompatActivity{
         textView5 = (TextView)findViewById(R.id.textView5);
 
         //1,2,3,4,5,6,7,9 시작
+        String btn;
+        btn="btn_0";
         btn_0.setVisibility(View.VISIBLE);
         btn_1.setVisibility(View.GONE);
         btn_2.setVisibility(View.GONE);
@@ -147,6 +149,8 @@ public class MainActivity extends AppCompatActivity{
         btn_6.setVisibility(View.GONE);
         btn_7.setVisibility(View.GONE);
         btn_9.setVisibility(View.GONE);
+
+
 
         //1,2,3,4,5,6,7,9 시작
 
@@ -313,6 +317,7 @@ public class MainActivity extends AppCompatActivity{
                     btn_6.setVisibility(View.GONE);
                     btn_7.setVisibility(View.GONE);
                     btn_9.setVisibility(View.GONE);
+
                 }
             }
 
@@ -354,6 +359,35 @@ public class MainActivity extends AppCompatActivity{
             return true;
         }
         return false;
+    }
+
+    //사용자에게 가까운 역의 호선 색
+    public void  btn1_color(){
+        btn_1.setVisibility(View.GONE);
+    }
+    public void  btn2_color(){
+        btn_1.setVisibility(View.GONE);
+    }
+    public void  btn3_color(){
+        btn_1.setVisibility(View.GONE);
+    }
+    public void  btn4_color(){
+        btn_1.setVisibility(View.GONE);
+    }
+    public void  btn5_color(){
+        btn_1.setVisibility(View.GONE);
+    }
+    public void  btn6_color(){
+        btn_1.setVisibility(View.GONE);
+    }
+    public void  btn7_color(){
+        btn_1.setVisibility(View.GONE);
+    }
+    public void  btn8_color(){
+        btn_1.setVisibility(View.GONE);
+    }
+    public void  btn9_color(){
+        btn_1.setVisibility(View.GONE);
     }
 
     public void copyDataBase(){

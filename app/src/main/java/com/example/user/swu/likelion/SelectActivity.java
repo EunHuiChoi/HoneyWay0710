@@ -2213,12 +2213,12 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
         //현재시간으로 DB에 검색
         time  = "time" + formatHour ;
 
+
         database = FirebaseDatabase.getInstance();
 
         dialog = new ProgressDialog(this);
         dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         dialog.setMessage("데이터를 불러오고 있습니다");
-
 
         //도착역 선택 버튼 클릭했을 때
         btn_next.setOnClickListener(new View.OnClickListener() {

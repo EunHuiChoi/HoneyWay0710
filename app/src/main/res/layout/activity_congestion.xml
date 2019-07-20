@@ -94,14 +94,7 @@
 
     </RelativeLayout>
 
-    <ImageButton
-        android:id="@+id/btnSend"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:src="@drawable/img_detail"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="30dp" />
+
 
     <SlidingDrawer
         android:id="@+id/slide"
@@ -113,9 +106,7 @@
         android:content="@+id/content"
         android:handle="@+id/handle"
         android:orientation="vertical"
-        android:topOffset="-10dp"
-
-        >
+        android:topOffset="-10dp">
 
         <ImageView
             android:id="@+id/handle"
@@ -130,12 +121,17 @@
             android:background="@drawable/detail"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_marginTop="80dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp"
                 android:layout_height="wrap_content"
-                android:text="hello"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="70dp"/>
+                android:id="@+id/recyclerview"
+                android:scrollbars="vertical"
+                android:layout_weight="1">
+            </android.support.v7.widget.RecyclerView>
 
         </LinearLayout>
     </SlidingDrawer>
