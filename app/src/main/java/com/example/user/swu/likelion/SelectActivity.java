@@ -65,7 +65,6 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
 
     //[태영 DB]
     String TAG = this.getClass().getSimpleName();
-    FirebaseDatabase database;
 
     String[] four = {"당고개","상계","노원","창동","쌍문","수유","미아","미아사거리","길음",
             "성신여대입구","한성대입구", "혜화","동대문","동대문역사문화공원","충무로","명동",
@@ -2221,9 +2220,6 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
         //현재시간으로 DB에 검색
         time  = "time" + formatHour ;
 
-
-        database = FirebaseDatabase.getInstance();
-
         dialog = new ProgressDialog(this);
         dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         dialog.setMessage("데이터를 불러오고 있습니다");
@@ -2233,154 +2229,29 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
             @Override
             public void onClick(View v) {
                 congestion = null;
-
+                Log.d("tag", formatTime);
                 if (time.equals("time01") || time.equals("time02") || time.equals("time03") || time.equals("time04")) {
                     //1시, 2시, 3시는 어떤 경우에도 운행시간이 아니기 때문에 DB를 거칠 필요 없음
                     congestion = "운행시간아님";
 
                     final Intent intent = new Intent(getApplicationContext(), FiveRoadActivity.class);
                     intent.putExtra("FORMATTIME", formatTime);
+                    intent.putExtra("DAY", day);
                     intent.putExtra("DEPART", DepartArrive.get(0));
                     intent.putExtra("ARRIVE", DepartArrive.get(1));
                     intent.putExtra("CONGESTION", congestion);
                     startActivity(intent);
                 } else {
-
                     if (DepartArrive.size() == 1) {
                         Toast.makeText(SelectActivity.this, "도착역을 설정하세요", Toast.LENGTH_SHORT).show();
                     } else {
-                        //DepartArrive.add("동대문역사문화공원"); //임의로 넣음(추후 수정)
-                        //DepartArrive.add("사당"); //임의로 넣음 (추후 수정)
-
-                        //선택받은 출발역과 도착역 four 배열에서 찾아서 몇번째인지 변수에 저장하기
-                        for (int i = 0; i < four.length; i++) {
-                            if (four[i].equals(DepartArrive.get(0))) {
-                                depart = i;
-                            }
-                            if (four[i].equals(DepartArrive.get(1))) {
-                                arrive = i;
-                            }
-                        }
-
-                        //상행 하행 판단
-                        if (arrive - depart < 0) { //ex 동대문->사당 //상행 (DB에 상행이라 저장함)
-                            direction = "up";
-                        } else {  //나머지는 하행
-                            direction = "down";
-                        }
-
-                        //DB 코드
-                        datas.clear();
-                        stations.clear();
-                        dialog.show();
-                        database.getReference().child("4" + day + direction).addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                if (dataSnapshot.exists()) {
-                                    for (DataSnapshot datasnapshot : dataSnapshot.getChildren()) {
-                                        Data data = datasnapshot.getValue(Data.class);
-
-                                        if (direction.equals("down")) { //하행일 때 (동대문 -> 사당)
-
-                                            for (int i = depart; i <= arrive; i++) {
-                                                if (data.station.equals(four[i])) {
-                                                    Log.d(TAG, "four하행=====>" + four[i]);
-                                                    stations.add(data.station);
-                                                    for (Field field : data.getClass().getDeclaredFields()) {
-                                                        try {
-                                                            field.setAccessible(true);
-                                                            if (field.getName().equals(time)) {
-                                                                Log.d(TAG, "field===>" + field.getName());
-                                                                String value = (String) field.get(data);
-                                                                Log.d(TAG, "value===>" + value);
-                                                                datas.add(value);
-                                                                if (data.station.equals(four[depart])) {
-                                                                    congestion = value;
-                                                                    //intent.putExtra("CONGESTION",congestion);
-                                                                }
-                                                            }
-
-                                                        } catch (Exception e) {
-                                                            Log.d(TAG, "ㅜㅜㅜㅜㅜㅜㅜ");
-                                                        }
-
-                                                    }
-                                                    //datas.add(data.time13);
-                                                    break;
-                                                }
-                                            }
-
-                                        } else { //상행일 때 (사당 -> 동대문)
-                                            for (int i = depart; i >= arrive; i--) {
-                                                if (data.station.equals(four[i])) {
-                                                    Log.d(TAG, "four상행=====>" + four[i]);
-                                                    stations.add(data.station);
-                                                    for (Field field : data.getClass().getDeclaredFields()) {
-                                                        try {
-                                                            field.setAccessible(true);
-                                                            if (field.getName().equals(time)) {
-                                                                Log.d(TAG, "field===>" + field.getName());
-                                                                String value = (String) field.get(data);
-                                                                Log.d(TAG, "value===>" + value);
-                                                                datas.add(value);
-                                                                if (data.station.equals(four[depart])) {
-                                                                    congestion = value;
-                                                                    //intent.putExtra("CONGESTION",congestion);
-                                                                }
-                                                            }
-                                                        } catch (Exception e) {
-                                                            Log.d(TAG, "ㅜㅜㅜㅜㅜㅜㅜ");
-                                                        }
-
-                                                    }
-                                                    //datas.add(data.time13);
-                                                    break;
-                                                }
-                                            }
-
-                                        }
-                                    }
-                                    Log.d(TAG, datas.toString());
-
-                                    if (direction.equals("up")) { //상행일 때 (사당 -> 동대문)
-                                        Collections.reverse(stations);
-                                        Collections.reverse(datas);
-                                        //하은 소요시간
-                                        timeResult = 0;
-                                        for (int i = arrive; i < depart; i++) {
-                                            timeResult += totalTime[i];
-                                        }
-                                    } else {
-                                        //하은 소요시간
-                                        timeResult = 0;
-                                        for (int i = depart; i < arrive; i++) {
-                                            timeResult += totalTime[i];
-                                        }
-
-                                    }
-
-
-                                    final Intent intent = new Intent(getApplicationContext(), FiveRoadActivity.class);
-                                    intent.putExtra("FORMATTIME", formatTime);
-                                    intent.putExtra("DEPART", four[depart]);
-                                    intent.putExtra("ARRIVE", four[arrive]);
-
-                                    intent.putExtra("CONGESTION", congestion);
-                                    intent.putStringArrayListExtra("DATA", datas);
-                                    intent.putStringArrayListExtra("STATION", stations);
-                                    dialog.dismiss();
-
-
-                                    intent.putExtra("timeResult", timeResult);
-                                    startActivity(intent);
-                                }
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                            }
-                        });
+                        final Intent intent = new Intent(getApplicationContext(), FiveRoadActivity.class);
+                        intent.putExtra("FORMATTIME", formatTime);
+                        intent.putExtra("DAY", day);
+                        intent.putExtra("DEPART", DepartArrive.get(0));
+                        intent.putExtra("ARRIVE", DepartArrive.get(1));
+                        intent.putExtra("CONGESTION", congestion);
+                        startActivity(intent);
                     }
                 }
             }
