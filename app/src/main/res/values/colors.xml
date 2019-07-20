@@ -15,4 +15,16 @@
 
     <drawable name="focused">#88FF5500</drawable>
     <drawable name="selected">#88FF00FF</drawable>
+
+    <color name ="line1">#0d3692 </color>
+    <color name ="line2">#33a23d </color>
+    <color name ="line3">#fe5d10 </color>
+    <color name ="line4">#00a2d1 </color>
+    <color name ="line5">#8b50a4 </color>
+    <color name ="line6">#c55c1d </color>
+    <color name ="line7">#54640d </color>
+    <color name ="line8">#f14c82 </color>
+    <color name ="line9">#aa9872 </color>
+
+
 </resources>

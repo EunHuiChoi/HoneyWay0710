@@ -139,8 +139,9 @@ public class CongestionActivity extends AppCompatActivity {
         //출발역과 도착역 사이의 역들, 혼잡도 passing_station에 넣기
         for (int i = 0; i< infos[0].congestions.length ; i++) {
             //passing_station.add(new Detail_Info(infos[0].stations[0], infos[0].congestions[i]));
-            passing_station.add(new Detail_Info(infos[0].congestions[i],infos[0].stations[i]));
+            passing_station.add(new Detail_Info(infos[0].congestions[i],infos[0].stations[i], infos[0].hoseons[i]));
         }
+
 
         //출발역과 도착역 사이의 역들 출력하기
         Detail_Adapter myAdapter = new Detail_Adapter(passing_station);
