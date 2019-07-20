@@ -10,11 +10,12 @@
         android:allowBackup="true"
         android:icon="@drawable/logo_icon"
         android:label="Honey Way"
+        android:largeHeap="true"
         android:roundIcon="@drawable/logo_icon"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:largeHeap="true">
-        <activity android:name=".DFSActivity"></activity>
+        android:theme="@style/AppTheme">
+        <activity android:name=".PopUpActivity" android:theme="@style/Dialog"></activity>
+        <activity android:name=".DFSActivity" />
         <activity android:name=".FiveRoadActivity" />
         <activity android:name=".StationMapAActivity" />
 

@@ -9,4 +9,10 @@
     <color name="color_botong">#DC5631</color>
     <color name="color_honjob">#93241D</color>
     <color name="color_bbackbback">#4A4040</color>
+
+    <color name = "yellow">#FFEE00</color>
+    <color name = "white">#FFFFFF</color>
+
+    <drawable name="focused">#88FF5500</drawable>
+    <drawable name="selected">#88FF00FF</drawable>
 </resources>
