@@ -10,23 +10,41 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
         <TextView
-            android:text="Notice"
             android:layout_width="match_parent"
-            android:layout_height="53dp" />
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="사용자와 함께 똑똑해지는 허니웨이" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        <EditText
+        <RadioButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="모두가 여유롭게 앉아있어요"/>
+        <RadioButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="text output"
-            android:id="@+id/txt"/>
+            android:text="대부분의 승객이 앉아있어요"/>
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="서 있는 승객 수와 자리 개수가 비슷해요"/>
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="사람이 많아 서 있는 승객 중 손잡이를 못 잡은 사람이 있어요"/>
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="너무 혼잡해서 내리기 힘들어요"/>
     </LinearLayout>
 
     <View
@@ -38,12 +56,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_weight="1">
         <Button
             android:layout_width="match_parent"
-            android:layout_height="53dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="submit"
+            android:layout_weight="0.5"
+            android:id="@+id/submit"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
             android:gravity="center"
             android:text="close"
+            android:layout_weight="0.5"
             android:id="@+id/close"/>
     </LinearLayout>
 </LinearLayout>

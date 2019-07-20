@@ -866,6 +866,7 @@ public class DFSActivity extends AppCompatActivity{
                 Queue<String> directions = new LinkedList<String>();
                 Queue<Integer> departHours = new LinkedList<Integer>();
                 Queue<Integer> departMinutes = new LinkedList<Integer>();
+                Queue<String> hwanseungStation = new LinkedList<>();
 
                 int _hourInt = 0;
                 int _minuteInt = 0;
@@ -889,6 +890,7 @@ public class DFSActivity extends AppCompatActivity{
                             }
                             info.totalTime += maps[stack.elementAt(i - 1)][stack.elementAt(i)];
                             info.hwanseungs += 1;
+                            hwanseungStation.add(returnStation(stack.elementAt(i)));
                             //info.directions.push("환승");
                             continue;
                         }else{
@@ -936,6 +938,11 @@ public class DFSActivity extends AppCompatActivity{
                 }
                 info.departTimes = new int[departHours.size()][2];
                 j = departHours.size();
+                for(int i=0;i<j;i++){
+                    info.hwaseungStations[i] = hwanseungStation.poll();
+                }
+                info.hwaseungStations = new String[hwanseungStation.size()];
+                j = hwanseungStation.size();
                 for(int i=0;i<j;i++){
                     info.departTimes[i][0] = departHours.poll();
                     info.departTimes[i][1] = departMinutes.poll();
@@ -1071,6 +1078,7 @@ class structInfo implements Serializable {
     String[] hoseons;
     String[] directions;
     String[] congestions;
+    String[] hwaseungStations;
     int[][] departTimes;
     int totalTime = 0;
     int totalStation = 0;
