@@ -77,8 +77,8 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
     String time; //시간 초기화
     String direction; //방면(상행하행) 초기화
 
-    int arrive_line_num =1; //도착역 호선 번호
-
+    //int depart_line_num = 1; //출발역 호선 번호
+    //int arrive_line_num = 1; //도착역 호선 번호
 
     //[하은 소요시간 계산]
     int[] totalTime = {2, 2, 2, 2, 3, 2, 2, 2, 3, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 4, 3, 2, 1,0};
@@ -88,7 +88,6 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
 
 
     ProgressDialog dialog;
-
 
     String congestion = null;
 
@@ -1980,8 +1979,7 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
         btnS1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                arrive_line_num =1;
-                Log.d(TAG,"arrive_line_num===>"+arrive_line_num);
+                //arrive_line_num = 1;
                 lstStation1.setVisibility(View.VISIBLE);
                 lstStation2.setVisibility(View.INVISIBLE);
                 lstStation3.setVisibility(View.INVISIBLE);
@@ -2011,8 +2009,7 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
         btnS2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                arrive_line_num =2;
-                Log.d(TAG,"arrive_line_num===>"+arrive_line_num);
+                //arrive_line_num = 3;
                 lstStation1.setVisibility(View.INVISIBLE);
                 lstStation2.setVisibility(View.VISIBLE);
                 lstStation3.setVisibility(View.INVISIBLE);
@@ -2042,7 +2039,7 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
         btnS3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                arrive_line_num =3;
+                //arrive_line_num = 3;
                 lstStation1.setVisibility(View.INVISIBLE);
                 lstStation2.setVisibility(View.INVISIBLE);
                 lstStation3.setVisibility(View.VISIBLE);
@@ -2072,7 +2069,7 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
         btnS4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                arrive_line_num =4;
+                //arrive_line_num = 4;
                 lstStation1.setVisibility(View.INVISIBLE);
                 lstStation2.setVisibility(View.INVISIBLE);
                 lstStation3.setVisibility(View.INVISIBLE);
@@ -2103,7 +2100,7 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
         btnS5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                arrive_line_num =5;
+                //arrive_line_num = 5;
                 lstStation1.setVisibility(View.INVISIBLE);
                 lstStation2.setVisibility(View.INVISIBLE);
                 lstStation3.setVisibility(View.INVISIBLE);
@@ -2133,7 +2130,7 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
         btnS6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                arrive_line_num =6;
+                //arrive_line_num = 6;
                 lstStation1.setVisibility(View.INVISIBLE);
                 lstStation2.setVisibility(View.INVISIBLE);
                 lstStation3.setVisibility(View.INVISIBLE);
@@ -2163,7 +2160,7 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
         btnS7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                arrive_line_num =7;
+                //arrive_line_num = 7;
                 lstStation1.setVisibility(View.INVISIBLE);
                 lstStation2.setVisibility(View.INVISIBLE);
                 lstStation3.setVisibility(View.INVISIBLE);
@@ -2193,7 +2190,7 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
         btnS8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                arrive_line_num =8;
+                //arrive_line_num = 8;
                 lstStation1.setVisibility(View.INVISIBLE);
                 lstStation2.setVisibility(View.INVISIBLE);
                 lstStation3.setVisibility(View.INVISIBLE);
@@ -2242,7 +2239,6 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG,"arrive_line_num===>"+arrive_line_num);
                 congestion = null;
                 Log.d("tag", formatTime);
                 if (time.equals("time01") || time.equals("time02") || time.equals("time03") || time.equals("time04")) {
@@ -2271,7 +2267,6 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
                 }
             }
         });
-
 
         //////////////////////////////////////// 태영 시간요일바꾸는버튼
         txtvTime = findViewById(R.id.txtvTime);
@@ -2308,8 +2303,9 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
                 intent.putExtra("HOUR", formatHour);
                 intent.putExtra("MINUTE", formatMinute);
                 intent.putExtra("DAY", day);
-                intent.putExtra("DEPART", "");
-                intent.putExtra("ARRIVE","");
+                intent.putExtra("DEPART", DepartArrive.get(0));
+                intent.putExtra("ARRIVE",DepartArrive.get(1));
+                //intent.putExtra("LINE",arrive_line_num);
                 startActivity(intent);
             }
         });

@@ -20,8 +20,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.PriorityQueue;
+import java.util.Queue;
 import java.util.Stack;
 
 public class DFSActivity extends AppCompatActivity {
@@ -126,19 +128,33 @@ public class DFSActivity extends AppCompatActivity {
     // 배열 사이즈
     int rowSize;
 
+    String hour;
+    String minute;
+    String day;
+    int hourInt;
+    int minuteInt;
+    String depart;
+    String arrive;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         Intent intent = getIntent();
-        String hour = intent.getStringExtra("HOUR");
-        String minute = intent.getStringExtra("MINUTE");
-        String day = intent.getStringExtra("DAY");
+        hour = intent.getStringExtra("HOUR");
+        minute = intent.getStringExtra("MINUTE");
+        day = intent.getStringExtra("DAY");
+        depart = intent.getStringExtra("DEPART");
+        arrive =intent.getStringExtra("ARRIVE");
 
-        int hourInt = Integer.parseInt(hour);
-        int minuteInt = Integer.parseInt(minute);
+        hour = "20";
+        minute="30";
+
+        hourInt = Integer.parseInt(hour);
+        minuteInt = Integer.parseInt(minute);
 
         String realTime = returnTime(hourInt, minuteInt);
+        realTime = "time2030";
 
         //String fullTime = hour+minute;
 
@@ -594,12 +610,8 @@ public class DFSActivity extends AppCompatActivity {
 
         d.inputData(287, 331, 1,1);//태릉입구(6)태릉입구(7)
 
-        d.DFS(257, 132); //경로를 찾을 출발역, 도착역 설정
+        d.DFS(returnStationNum(depart), returnStationNum(arrive)); //경로를 찾을 출발역, 도착역 설정
 
-        int j = queue.size();
-        for(int i=0; i<j; i++){
-            queue.poll().print();
-        }
 
         //////////////////////////////DB검색
         boolean bResult = isCheckDatabase();    // DB가 있는지?
@@ -610,20 +622,45 @@ public class DFSActivity extends AppCompatActivity {
 
         myHelper = new DFSActivity.myDBHelper(this);
         congestionDB = myHelper.getReadableDatabase();
-        Cursor cursor;
-        cursor = congestionDB.rawQuery("SELECT "+realTime+" FROM satUp where stationName=" + "'시청' AND line=1" , null);
-        rowSize = cursor.getCount();
+        //cursor = congestionDB.rawQuery("SELECT "+realTime+" FROM satUp where stationName=" + "'시청' AND line=1" , null);
+        //rowSize = cursor.getCount();
         //Log.d(TAG,"rowSize => "+rowSize);
-        int i = 0;
-        String result="";
-        while(cursor.moveToNext()){
-            // 배열 삽입
-            result = cursor.getString(0);
-            i++;
-        }
+       // int i = 0;
 
-        Log.d(TAG,"rowSize => "+rowSize+" & result => "+result);
-        cursor.close();
+//        while(cursor.moveToNext()){
+//            // 배열 삽입
+//            result = cursor.getString(0);
+//            i++;
+//        }
+        structInfo[] infos = new structInfo[5];
+
+        int j = queue.size();
+        for(int z=0; z<j; z++){
+            structInfo imsi = queue.poll();
+            imsi.congestions = new String[imsi.hoseons.length];
+            //imsi.print();
+            int x = imsi.hoseons.length;
+            for(int y=0; y<x;y++) {
+                Cursor cursor;
+                cursor = congestionDB.rawQuery("SELECT " + returnTime(imsi.departTimes[y][0],imsi.departTimes[y][1]) + " FROM " + "sat" + imsi.directions[y] + " where stationName='" + imsi.stations[y] + "' AND line=" + imsi.hoseons[y], null);
+                rowSize = cursor.getCount();
+                cursor.moveToNext();
+                try {
+                    imsi.congestions[y] = cursor.getString(0);
+                }catch(Exception e){
+                    imsi.congestions[y] = "없음";
+                }
+                cursor.close();
+            }
+            infos[z] = imsi;
+            //Log.d(TAG,"길이 => "+Congestions.length);
+            //imsi.print();
+        }
+        Intent intent2 = new Intent(this.getApplicationContext(),FiveRoadActivity.class);
+        intent.putExtra("INFOS",infos);
+        startActivity(intent);
+
+        //Log.d(TAG,"rowSize => "+rowSize+" & result => "+result)
         congestionDB.close();
     }
 
@@ -631,12 +668,12 @@ public class DFSActivity extends AppCompatActivity {
         String time = "운행 시간 아님";
         for(int i=0;i<index2Time.length;i++){
             int _hour = Integer.parseInt(index2Time[i].substring(4,6));
-            Log.d(TAG,"_hour => "+_hour+"\n hourInt => "+hourInt+"\n minuteInt => "+minuteInt);
+            //Log.d(TAG,"_hour => "+_hour+"\n hourInt => "+hourInt+"\n minuteInt => "+minuteInt);
             if(_hour == hourInt){
                 if(minuteInt<=30){
-                    time =  index2Time[i];
+                    time =  index2Time[i-1];
                 }else{
-                    time = index2Time[i+1];
+                    time = index2Time[i];
                 }
             }
         }
@@ -695,6 +732,36 @@ public class DFSActivity extends AppCompatActivity {
         }
         return hoseon;
     }
+
+    public int returnStationNum(String s){ // 역이름 -> 역번호
+        int stationNum = 0;
+        for (int i = 1; i<=fullLength ; i++) {
+            if (i<=st1Length && s.equals(station1[i])) {
+                stationNum = i;
+            }else if((st1Length+st2Length >= i && i>st1Length) && s.equals((station2[i-st1Length]))){
+                stationNum = i;
+            }else if(st1Length+st2Length+st3Length >= i && i>st1Length+st2Length && s.equals((station3[i-st1Length-st2Length]))) {
+                stationNum = i;
+            }else if(st1Length+st2Length+st3Length+st4Length >= i && i>st1Length+st2Length+st3Length && s.equals((station4[i-st1Length-st2Length-st3Length]))) {
+                stationNum = i;
+            }else if(st1Length+st2Length+st3Length+st4Length+st5Length >= i && i>st1Length+st2Length+st3Length+st4Length && s.equals((station5[i-st1Length-st2Length-st3Length-st4Length]))) {
+                stationNum = i;
+            }else if(st1Length+st2Length+st3Length+st4Length+st5Length+st6Length >= i && i>st1Length+st2Length+st3Length+st4Length+st5Length && s.equals((station6[i-st1Length-st2Length-st3Length-st4Length-st5Length]))) {
+                stationNum = i;
+            }else if(st1Length+st2Length+st3Length+st4Length+st5Length+st6Length+st7Length >= i && i>st1Length+st2Length+st3Length+st4Length+st5Length+st6Length && s.equals((station7[i-st1Length-st2Length-st3Length-st4Length-st5Length-st6Length]))) {
+                stationNum = i;
+            }else if(st1Length+st2Length+st3Length+st4Length+st5Length+st6Length+st7Length+st8Length >= i && i>st1Length+st2Length+st3Length+st4Length+st5Length+st6Length+st7Length && s.equals((station8[i-st1Length-st2Length-st3Length-st4Length-st5Length-st6Length-st7Length]))) {
+                stationNum = i;
+            }else if(st1Length+st2Length+st3Length+st4Length+st5Length+st6Length+st7Length+st8Length+stSSLength >= i && i>st1Length+st2Length+st3Length+st4Length+st5Length+st6Length+st7Length+st8Length && s.equals((stationSS[i-st1Length-st2Length-st3Length-st4Length-st5Length-st6Length-st7Length-st8Length]))) {
+                stationNum = i;
+            }else if(fullLength > i && i>st1Length+st2Length+st3Length+st4Length+st5Length+st6Length+st7Length+st8Length+stSSLength && s.equals((stationSJ[i-st1Length-st2Length-st3Length-st4Length-st5Length-st6Length-st7Length-st8Length-stSSLength]))) {
+                stationNum = i;
+            }
+        }
+        Log.d(TAG,"역번호==> "+stationNum);
+        return stationNum;
+    }
+
 
     public int cntHws(int[] hwanseungs){
         int hwanseung=0;
@@ -762,6 +829,15 @@ public class DFSActivity extends AppCompatActivity {
 
             if (v == goal) { //목표노드에 왔으면
 
+                Queue<String> stations = new LinkedList<String>();
+                Queue<String> hoseons = new LinkedList<String>();
+                Queue<String> directions = new LinkedList<String>();
+                Queue<Integer> departHours = new LinkedList<Integer>();
+                Queue<Integer> departMinutes = new LinkedList<Integer>();
+
+                int _hourInt = 0;
+                int _minuteInt = 0;
+
                 //structInfo 객체 생성
                 structInfo info = new structInfo();
 
@@ -771,32 +847,68 @@ public class DFSActivity extends AppCompatActivity {
                 for (int i = 0; i < count; i++) {
                     if (num >= 1) {
                         if (returnStation(stack.elementAt(i)).equals(returnStation(stack.elementAt(i - 1)))) {
-                            if(stack.size()>2 && returnStation(stack.elementAt(i)).equals(returnStation(stack.elementAt(i - 1))) && returnStation(stack.elementAt(i-1)).equals(returnStation(stack.elementAt(i - 2)))){
-                                stack.pop(); //DFS에서 빠져나오기
-                                hwanseungs[limit] = 0;
-                                limit -= 1;
-                                return;
+                            if(stack.size()>2 && returnStation(stack.elementAt(i)).equals(returnStation(stack.elementAt(i - 1)))){
+                                if(returnStation(stack.elementAt(i-1)).equals(returnStation(stack.elementAt(i - 2)))) {
+                                    stack.pop(); //DFS에서 빠져나오기
+                                    hwanseungs[limit] = 0;
+                                    limit -= 1;
+                                    return;
+                                }
                             }
                             info.totalTime += maps[stack.elementAt(i - 1)][stack.elementAt(i)];
                             info.hwanseungs += 1;
                             //info.directions.push("환승");
                             continue;
                         }else{
-                            info.stations.push(returnStation(stack.elementAt(i)));
-                            info.hoseons.push(returnHoseon(stack.elementAt(i)));
-                            info.totalTime += maps[stack.elementAt(i - 1)][stack.elementAt(i)];
+                            stations.add(returnStation(stack.elementAt(i)));
+                            hoseons.add(returnHoseon(stack.elementAt(i)));
                             info.totalStation += 1;
                             if (stack.elementAt(i) > stack.elementAt(i - 1)) {
-                                info.directions.push("down");
+                                directions.add("down");
                             }else{
-                                info.directions.push("up");
+                                directions.add("up");
                             }
+                            info.totalTime += maps[stack.elementAt(i - 1)][stack.elementAt(i)];
+                            _minuteInt += maps[stack.elementAt(i - 1)][stack.elementAt(i)];
+                            if(_minuteInt>=60){
+                                _minuteInt = 0;
+                                _hourInt += 1;
+                            }
+                            departHours.add(_hourInt);
+                            departMinutes.add(_minuteInt);
                         }
                     }else{
-                        info.stations.push(returnStation(stack.elementAt(i)));
+                        stations.add(returnStation(stack.elementAt(i)));
+                        _hourInt = hourInt;
+                        _minuteInt = minuteInt;
+                        departHours.add(_hourInt);
+                        departMinutes.add(_minuteInt);
                     }
                     num++;
                 }
+
+                info.stations = new String[stations.size()];
+                int j = stations.size();
+                for(int i=0;i<j;i++){
+                    info.stations[i] = stations.poll();
+                }
+                info.hoseons = new String[hoseons.size()];
+                j = hoseons.size();
+                for(int i=0;i<j;i++){
+                    info.hoseons[i] = hoseons.poll();
+                }
+                info.directions = new String[directions.size()];
+                j = directions.size();
+                for(int i=0;i<j;i++){
+                    info.directions[i] = directions.poll();
+                }
+                info.departTimes = new int[departHours.size()][2];
+                j = departHours.size();
+                for(int i=0;i<j;i++){
+                    info.departTimes[i][0] = departHours.poll();
+                    info.departTimes[i][1] = departMinutes.poll();
+                }
+
                 //System.out.println("\n ^총 역 개수: " + totalStation+" & 총 소요 시간: "+totalTime+" & 총 환승 횟수: "+hwanseung);
                 //System.out.println("\n ^limit : " + limit + " & cntHws : "+cntHws(hwanseungs));
                 //// 스택값 출력
@@ -923,15 +1035,37 @@ public class DFSActivity extends AppCompatActivity {
 
 }
 class structInfo{
-    Stack<String> stations = new Stack();
-    Stack<String> hoseons = new Stack<>();
-    Stack<String> directions = new Stack<>();
+    String[] stations;
+    String[] hoseons;
+    String[] directions;
+    String[] congestions;
+    int[][] departTimes;
     int totalTime = 0;
     int totalStation = 0;
     int hwanseungs = 0;
 
     public void print() {
-        System.out.println("\n"+stations.toString()+"\n"+hoseons.toString()+"\n"+directions.toString()+"\n^소요시간: "+totalTime+" & 총 역 개수: "+totalStation+" & 환승 횟수: "+hwanseungs);
+        System.out.println();
+        for(int i=0;i<stations.length;i++){
+            System.out.print(stations[i]+" ");
+        }
+        System.out.println();
+        for(int i=0;i<hoseons.length;i++){
+            System.out.print(hoseons[i]+" ");
+        }
+        System.out.println();
+        for(int i=0;i<directions.length;i++){
+            System.out.print(directions[i]+" ");
+        }
+        System.out.println();
+        for(int i=0;i<congestions.length;i++){
+            System.out.print(congestions[i]+" ");
+        }
+        System.out.println();
+        for(int i=0;i<departTimes.length;i++){
+            System.out.print(departTimes[i][0]+":"+departTimes[i][1]+" ");
+        }
+        System.out.println("\n^소요시간: "+totalTime+" & 총 역 개수: "+totalStation+" & 환승 횟수: "+hwanseungs);
     }
 }
 
