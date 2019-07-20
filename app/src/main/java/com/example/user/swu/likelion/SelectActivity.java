@@ -31,7 +31,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
-public class SelectActivity extends AppCompatActivity implements ModifyFragment.ModifytListener {
+public class SelectActivity extends AppCompatActivity implements ModifyFragment.ModifyListener {
 
     Button btn_next;
     ImageButton btnModify;
@@ -106,10 +106,10 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
     String minute;
     TextView txtvTime;
 
-    public void onFInishModify(String h, String m, String d){
-        hour = h;
-        minute = m;
-        formatTime = hour+":"+minute;
+    public void onFinishModify(String h, String m, String d){
+        formatHour = h;
+        formatMinute = m;
+        formatTime = h+":"+m;
 
         if(d.equals("토요일")){
             day="sat";
@@ -122,7 +122,7 @@ public class SelectActivity extends AppCompatActivity implements ModifyFragment.
         txtvTime.setText(day+" "+formatTime);
 
         Log.d(TAG,formatTime+","+day);
-        time = "time"+hour;
+        //time = "time"+hour;
     }
 
     ////////////////////////////////태영 도착역 txtv
