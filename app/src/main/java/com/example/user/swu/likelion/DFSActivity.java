@@ -633,7 +633,7 @@ public class DFSActivity extends AppCompatActivity{
         //cursor = congestionDB.rawQuery("SELECT "+realTime+" FROM satUp where stationName=" + "'시청' AND line=1" , null);
         //rowSize = cursor.getCount();
         //Log.d(TAG,"rowSize => "+rowSize);
-       // int i = 0;
+        // int i = 0;
 
 //        while(cursor.moveToNext()){
 //            // 배열 삽입
@@ -643,7 +643,7 @@ public class DFSActivity extends AppCompatActivity{
         structInfo[] infos = new structInfo[5];
 
         int j = queue.size();
-        Intent intent2 = new Intent(this.getApplicationContext(),FiveRoadActivity.class);
+        Intent intent2 = new Intent(this.getApplicationContext(),CongestionActivity.class); //FiveRoadActivity.class);
         for(int z=0; z<j; z++){
             int sum = 0;
             structInfo imsi = queue.poll();
@@ -666,7 +666,7 @@ public class DFSActivity extends AppCompatActivity{
             infos[z] = imsi;
             //intent2.putExtra("INFO"+z,imsi);
             //Log.d(TAG,"길이 => "+Congestions.length);
-            //imsi.print();
+            imsi.print();
             //intent2.putExtra("INFO"+z,imsi);
             int avg = sum/imsi.congestions.length;
             if(avg<1){
@@ -681,18 +681,16 @@ public class DFSActivity extends AppCompatActivity{
                 Log.d(TAG,"매우 혼잡"+avg);
             }
         }
-        //startActivity(intent);
 
         //Log.d(TAG,"rowSize => "+rowSize+" & result => "+result)
         congestionDB.close();
-        intent2.putExtra("INFOS",infos);
 
+        intent2.putExtra("INFOS",infos);
         String formatTime = hour+"시 "+minute+"분";
         intent2.putExtra("FORMATTIME", formatTime);
         intent2.putExtra("DAY", day);
         intent2.putExtra("DEPART", depart);
         intent2.putExtra("ARRIVE", arrive);
-        //startActivity(intent);
         startActivity(intent2);
     }
 
@@ -866,7 +864,6 @@ public class DFSActivity extends AppCompatActivity{
                 Queue<String> directions = new LinkedList<String>();
                 Queue<Integer> departHours = new LinkedList<Integer>();
                 Queue<Integer> departMinutes = new LinkedList<Integer>();
-                Queue<String> hwanseungStation = new LinkedList<>();
 
                 int _hourInt = 0;
                 int _minuteInt = 0;
@@ -890,7 +887,6 @@ public class DFSActivity extends AppCompatActivity{
                             }
                             info.totalTime += maps[stack.elementAt(i - 1)][stack.elementAt(i)];
                             info.hwanseungs += 1;
-                            hwanseungStation.add(returnStation(stack.elementAt(i)));
                             //info.directions.push("환승");
                             continue;
                         }else{
@@ -938,11 +934,6 @@ public class DFSActivity extends AppCompatActivity{
                 }
                 info.departTimes = new int[departHours.size()][2];
                 j = departHours.size();
-                for(int i=0;i<j;i++){
-                    info.hwaseungStations[i] = hwanseungStation.poll();
-                }
-                info.hwaseungStations = new String[hwanseungStation.size()];
-                j = hwanseungStation.size();
                 for(int i=0;i<j;i++){
                     info.departTimes[i][0] = departHours.poll();
                     info.departTimes[i][1] = departMinutes.poll();
@@ -1078,7 +1069,6 @@ class structInfo implements Serializable {
     String[] hoseons;
     String[] directions;
     String[] congestions;
-    String[] hwaseungStations;
     int[][] departTimes;
     int totalTime = 0;
     int totalStation = 0;

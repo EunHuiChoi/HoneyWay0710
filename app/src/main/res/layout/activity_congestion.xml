@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,19 +15,37 @@
         android:layout_height="wrap_content"
         android:src="@drawable/nulnul"
         android:id="@+id/honjobdo"/>
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="1">
     <TextView
         android:id="@+id/depart_time"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/kopub"
         android:text="10 : 00"
-        android:textSize="17sp" />
+        android:textSize="17sp"
+        android:layout_weight="0.2"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.6"
+        android:gravity="center">
+    <ImageView
+        android:id="@+id/list"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/floating_list" />
+    </LinearLayout>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/kopub"
         android:layout_alignParentRight="true"
@@ -34,8 +53,10 @@
         android:layout_marginTop="20dp"
         android:textSize="17sp"
         android:id="@+id/end_time"
+        android:layout_weight="0.2"
         android:text="10 : 30"/>
 
+</LinearLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -95,11 +116,12 @@
     </RelativeLayout>
 
 
-
     <SlidingDrawer
         android:id="@+id/slide"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignTop="@+id/honjobdo"
+        android:layout_marginTop="0dp"
         android:allowSingleTap="true"
         android:animateOnClick="true"
         android:bottomOffset="30dp"
@@ -129,9 +151,9 @@
                 android:layout_marginLeft="60dp"
                 android:layout_marginTop="80dp"
                 android:layout_marginRight="60dp"
+                android:layout_marginBottom="60dp"
                 android:layout_weight="1"
-                android:scrollbars="vertical"
-                android:layout_marginBottom="60dp"></android.support.v7.widget.RecyclerView>
+                android:scrollbars="vertical"></android.support.v7.widget.RecyclerView>
 
         </LinearLayout>
     </SlidingDrawer>

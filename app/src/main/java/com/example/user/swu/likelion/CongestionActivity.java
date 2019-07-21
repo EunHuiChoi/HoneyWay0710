@@ -36,6 +36,7 @@ public class CongestionActivity extends AppCompatActivity {
     private ArrayList<String> stations = new ArrayList<>();
     private ArrayList<Detail_Info> passing_station = new ArrayList<>(); //세부혼잡도 //넘기는 것
 
+    ImageView list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,5 +147,15 @@ public class CongestionActivity extends AppCompatActivity {
         //출발역과 도착역 사이의 역들 출력하기
         Detail_Adapter myAdapter = new Detail_Adapter(passing_station);
         mRecyclerView.setAdapter(myAdapter);
+
+        /////////////////////이미지
+        list = findViewById(R.id.list);
+        list.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),FiveRoadActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
