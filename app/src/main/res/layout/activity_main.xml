@@ -50,12 +50,13 @@
 
                     <ImageButton
                         android:id="@+id/settingBtn"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_gravity="center|right"
                         android:layout_weight="0"
                         android:background="@android:color/transparent"
-                        android:paddingRight="50dp"
+                        android:layout_marginRight="20dp"
+                        android:scaleType="fitXY"
                         app:srcCompat="@drawable/feedback" />
                 </FrameLayout>
 
