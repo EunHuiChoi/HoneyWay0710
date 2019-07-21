@@ -8,13 +8,13 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="100dp">
 
         <ListView
             android:id="@+id/list101"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="visible">
+            android:visibility="invisible">
 
         </ListView>
 
@@ -22,7 +22,8 @@
             android:id="@+id/list102"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="invisible">
+            android:background="#e8a231"
+            android:visibility="visible">
 
         </ListView>
 
@@ -38,18 +39,19 @@
             android:id="@+id/list104"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#e8a231"
             android:visibility="invisible" />
     </FrameLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="100dp">
 
         <ListView
             android:id="@+id/list201"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="visible">
+            android:visibility="invisible">
 
         </ListView>
 
@@ -57,7 +59,8 @@
             android:id="@+id/list202"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="invisible">
+            android:background="#d63b2d"
+            android:visibility="visible">
 
         </ListView>
 
@@ -73,18 +76,19 @@
             android:id="@+id/list204"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#d63b2d"
             android:visibility="invisible" />
     </FrameLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="100dp">
 
         <ListView
             android:id="@+id/list301"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="visible">
+            android:visibility="invisible">
 
         </ListView>
 
@@ -92,7 +96,8 @@
             android:id="@+id/list302"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="invisible">
+            android:background=" #f5dbbf"
+            android:visibility="visible">
 
         </ListView>
 
@@ -108,18 +113,19 @@
             android:id="@+id/list304"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background=" #f5dbbf"
             android:visibility="invisible" />
     </FrameLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="100dp">
 
         <ListView
             android:id="@+id/list401"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="visible">
+            android:visibility="invisible">
 
         </ListView>
 
@@ -135,7 +141,8 @@
             android:id="@+id/list403"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="invisible">
+            android:background=" #d63b2d"
+            android:visibility="visible">
 
         </ListView>
 
@@ -143,18 +150,19 @@
             android:id="@+id/list404"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background=" #d63b2d"
             android:visibility="invisible" />
     </FrameLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="100dp">
 
         <ListView
             android:id="@+id/list501"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="visible">
+            android:visibility="invisible">
 
         </ListView>
 
@@ -170,7 +178,8 @@
             android:id="@+id/list503"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="invisible">
+            android:background=" #d63b2d"
+            android:visibility="visible">
 
         </ListView>
 
@@ -178,6 +187,7 @@
             android:id="@+id/list504"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background=" #d63b2d"
             android:visibility="invisible" />
     </FrameLayout>
 

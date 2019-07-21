@@ -6,11 +6,12 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/conLayout3"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:orientation="horizontal"
-        android:background="#FF5555"
-        android:gravity="center">
+        android:background="#00000000"
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <RelativeLayout
             android:layout_width="0dp"
@@ -25,6 +26,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_toRightOf="@+id/circle01"
                 app:srcCompat="@drawable/rectangle90" />
+
             <ImageView
                 android:id="@+id/bar02"
                 android:layout_width="70dp"
@@ -33,6 +35,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_toRightOf="@+id/circle02"
                 app:srcCompat="@drawable/rectangle90" />
+
             <ImageView
                 android:id="@+id/bar3"
                 android:layout_width="70dp"
@@ -48,8 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="15dp"
-                app:srcCompat="@drawable/circle"
-                />
+                app:srcCompat="@drawable/circle" />
 
             <ImageView
                 android:id="@+id/circle02"

@@ -157,7 +157,7 @@ public class RoadAdapter4 extends BaseAdapter {
         }
 
         String tempTime = Integer.toString(roadBean4.getTime());
-        txtTime.setText(tempTime);
+        txtTime.setText(tempTime + "분");
 
 
         return convertView;

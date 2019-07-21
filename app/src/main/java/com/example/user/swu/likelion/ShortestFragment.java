@@ -18,9 +18,9 @@ import com.example.user.swu.likelion.adapter.StationAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MinimumTransferFragment extends Fragment  {
+public class ShortestFragment extends Fragment  {
 
-    public MinimumTransferFragment(){
+    public ShortestFragment(){
 
     }
 
@@ -32,7 +32,7 @@ public class MinimumTransferFragment extends Fragment  {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         //super.onCreate(savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_minimum_transfer, container, false);
+        View view = inflater.inflate(R.layout.fragment_shortest, container, false);
 
         list101 = view.findViewById(R.id.list101);
         list102 = view.findViewById(R.id.list102);
@@ -138,22 +138,22 @@ public class MinimumTransferFragment extends Fragment  {
         r301.setTime(10);
 
         RoadBean2 r302 = new RoadBean2();
-        r302.setStation1("삼각지");
-        r302.setStation2("동작");
-        r302.setStation3("건대");
-        r302.setTransfer1(4);
-        r302.setTransfer2(7);
-        r302.setTime(31);
+        r302.setStation1("test");
+        r302.setStation2("test");
+        r302.setStation3("test");
+        r302.setTransfer1(1);
+        r302.setTransfer2(1);
+        r302.setTime(10);
 
         RoadBean3 r303 = new RoadBean3();
-        r303.setStation1("test");
-        r303.setStation2("test");
-        r303.setStation3("test");
-        r303.setStation4("test");
-        r303.setTransfer1(1);
-        r303.setTransfer2(1);
-        r303.setTransfer3(1);
-        r303.setTime(10);
+        r303.setStation1("삼각지");
+        r303.setStation2("청구");
+        r303.setStation3("왕십리");
+        r303.setStation4("건대");
+        r303.setTransfer1(6);
+        r303.setTransfer2(5);
+        r303.setTransfer3(2);
+        r303.setTime(31);
 
         RoadBean4 r304 = new RoadBean4();
         r304.setStation1("test");
@@ -174,22 +174,22 @@ public class MinimumTransferFragment extends Fragment  {
         r401.setTime(10);
 
         RoadBean2 r402 = new RoadBean2();
-        r402.setStation1("test");
-        r402.setStation2("test");
-        r402.setStation3("test");
-        r402.setTransfer1(1);
-        r402.setTransfer2(1);
-        r402.setTime(10);
+        r402.setStation1("삼각지");
+        r402.setStation2("동작");
+        r402.setStation3("건대");
+        r402.setTransfer1(4);
+        r402.setTransfer2(7);
+        r402.setTime(31);
 
         RoadBean3 r403 = new RoadBean3();
-        r403.setStation1("삼각지");
-        r403.setStation2("청구");
-        r403.setStation3("왕십리");
-        r403.setStation4("건대");
-        r403.setTransfer1(6);
-        r403.setTransfer2(5);
-        r403.setTransfer3(2);
-        r403.setTime(30);
+        r403.setStation1("test");
+        r403.setStation2("test");
+        r403.setStation3("test");
+        r403.setStation4("test");
+        r403.setTransfer1(1);
+        r403.setTransfer2(1);
+        r403.setTransfer3(1);
+        r403.setTime(10);
 
         RoadBean4 r404 = new RoadBean4();
         r404.setStation1("test");

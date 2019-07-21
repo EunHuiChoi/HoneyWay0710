@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.example.user.swu.likelion.CongestedFragment;
 import com.example.user.swu.likelion.MinimumTransferFragment;
+import com.example.user.swu.likelion.ShortestFragment;
 
 public class PagerAdapter extends FragmentStatePagerAdapter {
 
@@ -23,7 +24,8 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
 
         switch (position) {
             case 0:
-
+                ShortestFragment tab1 = new ShortestFragment();
+                return tab1;
             case 1:
                 CongestedFragment tab2 = new CongestedFragment();
                 return tab2;
