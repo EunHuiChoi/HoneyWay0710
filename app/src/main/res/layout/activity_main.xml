@@ -70,28 +70,29 @@
                 android:orientation="vertical">
 
                 <FrameLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="100dp"
                     android:paddingLeft="10dp">
 
                     <ImageView
                         android:id="@+id/imageView6"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
+                        android:layout_gravity="center_horizontal"
                         app:srcCompat="@drawable/ifclik_guide_open" />
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="50dp"
+                        android:text="현재 시간, 9호선 신논현 방면"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
                 </FrameLayout>
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="40dp"
-                android:fontFamily="@font/kopub_dotum_bold"
-                android:text="10 : 00"
-                android:textColor="@android:color/background_light"
-                android:textSize="50sp" />
 
             <RelativeLayout
                 android:layout_width="wrap_content"

@@ -2137,20 +2137,20 @@ public class Select2Activity extends AppCompatActivity {
             }
         });
 
-//        lstStation1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                //값 넘겨주기
-//                if (DepartArrive.size() == 0) {
-//                    Toast.makeText(Select2Activity.this, "출발역을 설정하세요", Toast.LENGTH_SHORT).show();
-//                }else {
-//                    Intent intent = new Intent(getApplicationContext(), SelectActivity.class);
-//                    intent.putStringArrayListExtra("DepartArrive", DepartArrive);
-//
-//                    startActivity(intent);
-//                }
-//            }
-//        });
+        lstStation1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //값 넘겨주기
+                if (DepartArrive.size() == 0) {
+                    Toast.makeText(Select2Activity.this, "출발역을 설정하세요", Toast.LENGTH_SHORT).show();
+                }else {
+                    Intent intent = new Intent(getApplicationContext(), SelectActivity.class);
+                    intent.putStringArrayListExtra("DepartArrive", DepartArrive);
+
+                    startActivity(intent);
+                }
+            }
+        });
 
     }//end OnCreate();
 
